@@ -1,0 +1,1165 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Дорожная карта развития БегунДа</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Oswald:wght@500;600&display=swap">
+<style>
+:root{
+  --ground:#f1f3f6;
+  --surface:#ffffff;
+  --surface-2:#f6f7f9;
+  --ink:#13161b;
+  --ink-2:#414955;
+  --muted:#636d7b;
+  --line:#dfe3e9;
+  --line-2:#c5ccd6;
+  --a:#2a78d6; --a-strong:#1b5aa8; --a-tint:#eaf2fc;
+  --b:#eb6834; --b-strong:#ad4318; --b-tint:#fdf0e9;
+  --base:#7a8390; --base-tint:#e9ecf0;
+  --crit:#d03b3b; --crit-ink:#ad2626; --crit-tint:#fbeaea;
+  --good:#0ca30c; --good-ink:#0e6b14; --good-tint:#e7f4e7;
+  --focus:#2a78d6;
+  --dock:rgba(255,255,255,.93);
+  --shadow:0 1px 2px rgba(19,22,27,.06),0 8px 24px rgba(19,22,27,.08);
+  --font:"Golos Text",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --display:"Oswald","Arial Narrow","Roboto Condensed",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#0d1014; --surface:#161a21; --surface-2:#1c212a;
+    --ink:#eef1f5; --ink-2:#bec5cf; --muted:#8e97a5; --line:#29303a; --line-2:#3c4551;
+    --a:#3987e5; --a-strong:#8ab9f0; --a-tint:#142339;
+    --b:#d95926; --b-strong:#f2a07b; --b-tint:#2b1b13;
+    --base:#6f7885; --base-tint:#20252d;
+    --crit:#d03b3b; --crit-ink:#ff9a9a; --crit-tint:#3a1a1b;
+    --good:#0ca30c; --good-ink:#86de86; --good-tint:#15301a;
+    --focus:#8ab9f0;
+    --dock:rgba(22,26,33,.93);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#0d1014; --surface:#161a21; --surface-2:#1c212a;
+  --ink:#eef1f5; --ink-2:#bec5cf; --muted:#8e97a5; --line:#29303a; --line-2:#3c4551;
+  --a:#3987e5; --a-strong:#8ab9f0; --a-tint:#142339;
+  --b:#d95926; --b-strong:#f2a07b; --b-tint:#2b1b13;
+  --base:#6f7885; --base-tint:#20252d;
+  --crit:#d03b3b; --crit-ink:#ff9a9a; --crit-tint:#3a1a1b;
+  --good:#0ca30c; --good-ink:#86de86; --good-tint:#15301a;
+  --focus:#8ab9f0;
+  --dock:rgba(22,26,33,.93);
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;text-wrap:balance}
+p{margin:0}
+button,input,textarea{font:inherit;color:inherit}
+a{color:var(--a-strong)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+
+.page{max-width:1320px;margin:0 auto;padding-inline:clamp(16px,3vw,36px);padding-block:32px 170px;display:grid;gap:30px}
+
+/* шапка */
+.hero{display:grid;gap:12px;max-width:940px}
+.eyebrow{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:500}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(34px,4.8vw,54px);line-height:1.02;letter-spacing:.005em}
+.lede{font-size:17px;color:var(--ink-2);max-width:68ch}
+.legend{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 22px;font-size:13px;color:var(--ink-2)}
+.legend b{color:var(--ink);font-weight:600}
+.legend .demo-core{font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:0 7px;margin-right:4px;color:var(--ink-2)}
+
+/* обязательная база */
+.base{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:grid;gap:12px}
+.base-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}
+.base-head h2{font-size:17px;font-weight:600;display:flex;align-items:center;gap:8px}
+.base-head h2 svg{flex:none;color:var(--base)}
+.base-total{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{background:var(--base-tint);border-radius:8px;padding:5px 10px;font-size:13.5px;display:flex;gap:8px;align-items:baseline}
+.chips li span{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.base-note{font-size:14px;color:var(--ink-2);max-width:92ch}
+
+/* панель быстрого выбора */
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.presets{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.presets .lbl{font-size:13px;color:var(--muted);margin-right:4px}
+.btn{border:1px solid var(--line-2);background:var(--surface);border-radius:8px;padding:6px 12px;font-size:14px;cursor:pointer;line-height:1.3}
+.btn:hover{border-color:var(--ink-2)}
+.btn.ghost{background:transparent}
+.btn.primary{background:var(--ink);color:var(--surface);border-color:var(--ink);font-weight:600;padding:8px 16px}
+.seg{display:inline-flex;border:1px solid var(--line-2);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;background:transparent;padding:6px 14px;font-size:14px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.linkbtn{border:0;background:none;padding:0;color:var(--a-strong);text-decoration:underline;cursor:pointer;font-size:inherit}
+
+/* два вектора */
+.vectors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 30px}
+.vector{display:grid;grid-template-rows:subgrid;gap:16px;align-content:start;min-width:0}
+.vA{grid-column:1;grid-row:1 / span 5;--v:var(--a);--vs:var(--a-strong);--vt:var(--a-tint)}
+.vB{grid-column:2;grid-row:1 / span 5;--v:var(--b);--vs:var(--b-strong);--vt:var(--b-tint)}
+.vhead{display:flex;gap:14px;align-items:center}
+.plate{flex:none;width:60px;height:60px;border-radius:6px;color:#fff;font-family:var(--display);font-weight:600;font-size:34px;line-height:1;display:grid;place-items:center;
+  background:
+   radial-gradient(circle,var(--ground) 0 2.2px,transparent 2.7px) 4px 4px/7px 7px no-repeat,
+   radial-gradient(circle,var(--ground) 0 2.2px,transparent 2.7px) calc(100% - 4px) 4px/7px 7px no-repeat,
+   radial-gradient(circle,var(--ground) 0 2.2px,transparent 2.7px) 4px calc(100% - 4px)/7px 7px no-repeat,
+   radial-gradient(circle,var(--ground) 0 2.2px,transparent 2.7px) calc(100% - 4px) calc(100% - 4px)/7px 7px no-repeat,
+   var(--v)}
+.vkicker{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--vs);font-weight:600}
+.vname{font-family:var(--display);font-weight:500;font-size:27px;line-height:1.12}
+.goal{background:var(--vt);border-radius:10px;padding:14px 16px;display:grid;gap:4px}
+.goal-lbl{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--vs);font-weight:600}
+.goal-txt{font-size:16px;line-height:1.5}
+.facts{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 16px;margin:0;font-size:14px;align-content:start}
+.facts dt{color:var(--muted);font-weight:500}
+.facts dd{margin:0;color:var(--ink-2)}
+.vsum{font-size:13.5px;color:var(--ink-2);border-top:1px solid var(--line);padding-top:10px;align-self:start}
+.vsum b{font-weight:600;color:var(--ink)}
+.cards{display:grid;gap:10px;align-content:start}
+
+/* карточка блока */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px 12px;display:grid;gap:8px;cursor:pointer;transition:border-color .15s,background-color .15s,box-shadow .15s}
+.card:hover{border-color:var(--line-2)}
+.card.on{background:var(--vt);border-color:var(--v);box-shadow:0 0 0 1px var(--v)}
+.c-head{display:flex;gap:10px;align-items:flex-start}
+.c-head input[type=checkbox]{appearance:none;-webkit-appearance:none;margin:2px 0 0;width:20px;height:20px;flex:none;border:1.5px solid var(--line-2);border-radius:5px;background:var(--surface);display:grid;place-content:center;cursor:pointer}
+.c-head input[type=checkbox]::after{content:"";width:10px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(1px,-1px);opacity:0}
+.c-head input[type=checkbox]:checked{background:var(--v);border-color:var(--v)}
+.c-head input[type=checkbox]:checked::after{opacity:1}
+.c-code{font-family:var(--display);font-weight:600;font-size:15px;line-height:1.55;color:var(--vs);min-width:1.9em}
+.c-title{flex:1;font-weight:600;font-size:16px;line-height:1.35}
+.c-core{flex:none;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--vs);border:1px solid currentColor;border-radius:999px;padding:1px 8px;margin-top:2px}
+.c-desc,.c-meta,.c-more{padding-left:30px}
+.c-desc{color:var(--ink-2);font-size:14px}
+.c-meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;font-size:13px;color:var(--muted)}
+.c-wk b{font-family:var(--display);font-weight:600;font-size:20px;color:var(--ink);letter-spacing:.01em}
+.c-h{font-variant-numeric:tabular-nums}
+.c-bn{color:var(--ink-2)}
+.c-scores{margin-left:auto;display:inline-flex;gap:14px}
+.c-sc{display:inline-flex;align-items:center;gap:4px}
+.c-sc>span{margin-right:2px}
+.d{display:inline-block;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--line-2)}
+.d.on{background:var(--ink-2);border-color:var(--ink-2)}
+.c-more{display:none;gap:6px;font-size:13.5px;color:var(--ink-2);border-top:1px dashed var(--line-2);padding-top:10px;margin-left:30px;padding-left:0}
+.c-more ul{margin:0;padding-left:18px;display:grid;gap:2px}
+.c-more b{color:var(--ink);font-weight:600}
+.vectors.full .c-more{display:grid}
+
+/* матрица */
+.sec-head{display:grid;gap:6px}
+.sec-head h2{font-family:var(--display);font-weight:500;font-size:28px;line-height:1.15}
+.sec-head p{color:var(--ink-2);max-width:78ch}
+.matrix{display:grid;gap:14px}
+.mx{display:grid;grid-template-columns:118px repeat(3,minmax(0,1fr));gap:6px}
+.mx-ch,.mx-rh{font-size:12.5px;color:var(--muted);font-weight:500}
+.mx-ch{padding:0 4px 2px;align-self:end}
+.mx-ch b,.mx-rh b{color:var(--ink-2);font-weight:600}
+.mx-rh{display:block;align-self:center;padding-right:6px}
+.mx-cell{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px;display:flex;flex-wrap:wrap;align-content:flex-start;gap:6px;min-height:58px}
+.mx-cell.hot{border:1.5px dashed var(--ink-2)}
+.mx-cell .cap{display:none;width:100%;font-size:12px;color:var(--muted)}
+.mx-empty{font-size:12.5px;color:var(--muted);align-self:center;padding:2px 4px}
+.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line-2);border-radius:999px;padding:3px 10px 3px 7px;font-size:13px;background:var(--surface);cursor:pointer;line-height:1.3}
+.pill i{width:9px;height:9px;border-radius:50%;background:var(--v);flex:none}
+.pill b{font-family:var(--display);font-weight:600;color:var(--vs)}
+.pill.pA{--v:var(--a);--vs:var(--a-strong);--vt:var(--a-tint)}
+.pill.pB{--v:var(--b);--vs:var(--b-strong);--vt:var(--b-tint)}
+.pill.on{background:var(--vt);border-color:var(--v)}
+.pill:hover{border-color:var(--v)}
+
+/* итог */
+.result{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,2.6vw,30px);display:grid;gap:30px;box-shadow:var(--shadow)}
+.result>h2{font-family:var(--display);font-weight:500;font-size:32px;line-height:1.1}
+.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
+.step{display:grid;gap:12px;align-content:start;min-width:0}
+.step h3{font-size:16px;font-weight:600;display:flex;align-items:baseline;gap:10px}
+.step h3 .n{font-family:var(--display);font-weight:600;font-size:19px;color:var(--muted)}
+.choice{display:flex;flex-wrap:wrap;gap:6px}
+.choice label{position:relative}
+.choice input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.choice span{display:inline-block;border:1px solid var(--line-2);border-radius:999px;padding:6px 14px;font-size:14px;background:var(--surface);cursor:pointer}
+.choice input:checked+span{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.choice input:focus-visible+span{outline:2px solid var(--focus);outline-offset:2px}
+textarea{width:100%;border:1px solid var(--line-2);border-radius:10px;padding:10px 12px;background:var(--surface-2);resize:vertical;line-height:1.5;font-size:15px}
+textarea:disabled{opacity:.7}
+.goal-tools{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.hint{font-size:13.5px;color:var(--ink-2)}
+.hint b{color:var(--ink)}
+.cover{font-size:14px;padding:10px 12px;border-radius:10px;background:var(--surface-2);color:var(--ink-2)}
+.cover.warn{background:var(--crit-tint);color:var(--ink)}
+.picked{display:grid;gap:14px}
+.picked-grp{display:grid;gap:6px}
+.picked-grp h4{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.picked-grp ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.picked-grp li{display:grid;grid-template-columns:2.2em minmax(0,1fr) auto auto;gap:8px;align-items:baseline;font-size:14px;padding:3px 0;border-bottom:1px solid var(--line)}
+.picked-grp li .pc{font-family:var(--display);font-weight:600}
+.picked-grp.gA .pc{color:var(--a-strong)}
+.picked-grp.gB .pc{color:var(--b-strong)}
+.picked-grp li .pw{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.xbtn{border:0;background:none;cursor:pointer;color:var(--muted);font-size:18px;line-height:1;padding:0 4px}
+.xbtn:hover{color:var(--ink)}
+.empty{font-size:14px;color:var(--muted)}
+.weights{display:grid;gap:4px;font-size:13.5px;color:var(--ink-2)}
+
+.dl-row{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.dl-row .lbl{font-size:14px;color:var(--ink-2)}
+.verdict{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;padding:12px 14px;border-radius:10px;background:var(--surface-2)}
+.verdict.ok{background:var(--good-tint)}
+.verdict.bad{background:var(--crit-tint)}
+.ic{width:20px;height:20px;border-radius:50%;display:inline-grid;place-items:center;font-size:12px;font-weight:700;color:#fff;flex:none;background:var(--base);margin-top:1px}
+.ok .ic{background:var(--good)}
+.bad .ic{background:var(--crit)}
+
+/* дорожки команды */
+.lanes{display:grid;gap:8px;min-width:0}
+.ln{display:grid;grid-template-columns:210px minmax(0,1fr) 104px 92px 84px;gap:12px;align-items:center}
+.ln-head{font-size:12px;color:var(--muted);font-weight:500}
+.ln-head span:nth-child(n+3){text-align:right}
+.ln-role{display:grid;gap:1px;min-width:0}
+.rn{font-weight:600;font-size:14px}
+.rs{font-size:12px;color:var(--muted)}
+.stepper{display:inline-flex;align-items:center;border:1px solid var(--line-2);border-radius:8px;overflow:hidden;width:max-content;margin-top:5px;background:var(--surface)}
+.stepper button{border:0;background:var(--surface-2);width:30px;height:26px;cursor:pointer;font-size:16px;line-height:1}
+.stepper button:hover{background:var(--line)}
+.stepper output{min-width:54px;text-align:center;font-variant-numeric:tabular-nums;font-size:13px}
+.track{position:relative;height:26px;background:var(--surface-2);border-radius:4px}
+.sg{position:absolute;top:4px;bottom:4px;cursor:default}
+.sg.k-base{background:var(--base)}
+.sg.k-A{background:var(--a)}
+.sg.k-B{background:var(--b)}
+.sg.last{border-radius:0 4px 4px 0}
+.gy{position:absolute;top:0;bottom:0;width:1px;background:var(--line)}
+.dline{position:absolute;top:-5px;bottom:-5px;width:0;border-left:2px dashed var(--ink);opacity:.75;pointer-events:none}
+.ln-fin,.ln-load,.ln-need{font-size:14px;font-variant-numeric:tabular-nums;text-align:right}
+.ln-load.over{color:var(--crit-ink);font-weight:600}
+.need{display:inline-block;background:var(--crit-tint);color:var(--crit-ink);font-weight:600;border-radius:999px;padding:1px 10px;font-size:13px}
+.ln-x .track{background:none;height:22px}
+.tk{position:absolute;top:2px;transform:translateX(-50%);font-size:11.5px;color:var(--muted);white-space:nowrap}
+.tk.s{transform:none}
+.flag{position:absolute;bottom:0;font-size:12px;font-weight:600;white-space:nowrap;background:var(--ink);color:var(--surface);padding:1px 9px;border-radius:999px;transform:translateX(-50%)}
+.flag.r{transform:translateX(calc(-100% + 1px))}
+.m-only{display:none}
+.lg{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--ink-2)}
+.lg i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
+
+.share-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.status{font-size:13.5px;color:var(--ink-2)}
+.code-row{display:grid;gap:6px;font-size:14px}
+.code-in{display:flex;gap:8px;flex-wrap:wrap}
+.code-in input{flex:1;min-width:0;border:1px solid var(--line-2);border-radius:8px;padding:7px 10px;background:var(--surface-2);font-size:14px}
+
+/* как считали */
+.method{display:grid;gap:16px}
+.method-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:30px;align-items:start}
+.prose{display:grid;gap:10px;font-size:14.5px;color:var(--ink-2);max-width:74ch}
+.prose b{color:var(--ink)}
+.assump{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:6px}
+.assump label{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink)}
+.assump input{width:70px;border:1px solid var(--line-2);border-radius:8px;padding:5px 8px;background:var(--surface);font-variant-numeric:tabular-nums}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+caption{text-align:left;font-weight:600;padding-bottom:8px;font-size:14px}
+th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:12.5px}
+.calib td:last-child,.calib th:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.notes{display:grid;gap:14px}
+.notes ul{margin:0;padding-left:20px;display:grid;gap:8px;max-width:92ch;color:var(--ink-2)}
+.notes b{color:var(--ink)}
+.appendix{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.appendix summary{cursor:pointer;font-weight:600}
+.appendix .tbl-wrap{margin-top:12px}
+.foot{display:grid;gap:8px;font-size:13.5px;color:var(--ink-2)}
+.foot h2{font-size:15px;font-weight:600;color:var(--ink)}
+.foot ul{margin:0;padding-left:18px;display:grid;gap:4px}
+
+/* нижняя панель */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);background:var(--dock);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:10px clamp(16px,3vw,36px) calc(10px + env(safe-area-inset-bottom,0px))}
+.dock-in{max-width:1320px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;font-size:14px}
+.dock b{font-family:var(--display);font-weight:600;font-size:19px}
+.d-sub{color:var(--muted);font-size:13px}
+.d-pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:4px 12px 4px 6px;font-size:13.5px;font-weight:500;background:var(--surface-2)}
+.d-pill.ok{background:var(--good-tint);color:var(--good-ink)}
+.d-pill.bad{background:var(--crit-tint);color:var(--crit-ink)}
+.d-link{margin-left:auto;font-weight:600;text-decoration:none;color:var(--ink);border:1px solid var(--line-2);border-radius:8px;padding:5px 12px;background:var(--surface)}
+.tip{position:fixed;z-index:40;pointer-events:none;background:var(--ink);color:var(--surface);font-size:12.5px;line-height:1.4;padding:6px 9px;border-radius:6px;max-width:260px;box-shadow:var(--shadow)}
+
+@media (max-width:980px){
+  .vectors{grid-template-columns:minmax(0,1fr);row-gap:16px}
+  .vA,.vB{grid-column:1;grid-row:auto;grid-template-rows:none}
+  .vB{margin-top:34px}
+  .steps,.method-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:760px){
+  .facts{grid-template-columns:minmax(0,1fr);gap:2px}
+  .facts dd{margin-bottom:8px}
+  .c-desc,.c-meta{padding-left:0}
+  .c-more{margin-left:0}
+  .c-scores{margin-left:0}
+  .tk.s{display:none}
+  .dock-in{font-size:13px}
+  .dock b{font-size:16px}
+  .picked-grp li{grid-template-columns:2.2em minmax(0,1fr) auto;grid-template-areas:"c t x" ". w .";row-gap:0}
+  .picked-grp li .pc{grid-area:c}.picked-grp li .pt{grid-area:t}.picked-grp li .pw{grid-area:w}.picked-grp li .xbtn{grid-area:x}
+  .mx{grid-template-columns:minmax(0,1fr)}
+  .mx-ch,.mx-rh,.mx-corner{display:none}
+  .mx-cell .cap{display:block}
+  .ln{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"role fin" "track track" "load need";gap:6px 12px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+  .ln-role{grid-area:role}.ln-track{grid-area:track}.ln-fin{grid-area:fin}.ln-load{grid-area:load;text-align:left}.ln-need{grid-area:need}
+  .ln-head{display:none}
+  .ln-x{grid-template-columns:minmax(0,1fr);grid-template-areas:"track";border-bottom:0;padding-bottom:0}
+  .ln-x .ln-role{display:none}
+  .m-only{display:inline}
+  .d-link{margin-left:0}
+  .dock-in{gap:4px 14px}
+}
+@media print{.dock,.tip{display:none}.page{padding-bottom:20px}}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<header class="hero">
+  <h1>Дорожная карта развития БегунДа</h1>
+  <p class="lede">Два вектора развития приложения. Слева — конструктор программ для компаний, справа — массовая платформа на 5 млн участников вокруг беговых центров. Отметьте блоки из обоих векторов, выберите и поправьте метацель: внизу видно, когда команда все сделает и кого не хватает.</p>
+  <ul class="legend">
+    <li><b>Вес</b> — часы работы команды по блоку</li>
+    <li><b>Срок</b> — недели при текущем составе, с поправкой на поддержку и отпуска</li>
+    <li><b>Аудитория и деньги</b> — вклад блока, от 0 до 3</li>
+    <li><span class="demo-core">ядро</span>без блока метацель вектора не достигается</li>
+  </ul>
+</header>
+
+<section class="base" aria-labelledby="base-h">
+  <div class="base-head">
+    <h2 id="base-h"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="7" width="11" height="8" rx="1.6" fill="currentColor"/><path d="M5 7V5.2a3 3 0 0 1 6 0V7" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>Обязательная база: делаем при любом выборе</h2>
+    <span class="base-total" id="base-total"></span>
+  </div>
+  <ul class="chips" id="base-chips"></ul>
+  <p class="base-note" id="base-note"></p>
+</section>
+
+<div class="toolbar">
+  <div class="presets" role="group" aria-label="Быстрый выбор блоков">
+    <span class="lbl">Быстрый выбор:</span>
+    <button type="button" class="btn" data-preset="coreA">Ядро А</button>
+    <button type="button" class="btn" data-preset="coreB">Ядро Б</button>
+    <button type="button" class="btn" data-preset="coreBmoney">Ядро Б + деньги</button>
+    <button type="button" class="btn" data-preset="allA">Весь А</button>
+    <button type="button" class="btn" data-preset="allB">Весь Б</button>
+    <button type="button" class="btn ghost" data-preset="none">Очистить</button>
+  </div>
+  <div class="seg" role="group" aria-label="Вид карточек">
+    <button type="button" id="view-short" aria-pressed="true">Кратко</button>
+    <button type="button" id="view-full" aria-pressed="false">Подробно</button>
+  </div>
+</div>
+
+<section class="vectors" id="vectors" aria-label="Два вектора развития">
+  <article class="vector vA" aria-labelledby="vA-name">
+    <header class="vhead">
+      <div class="plate" aria-hidden="true">А</div>
+      <div>
+        <p class="vkicker">Вектор А · корпоративный сегмент</p>
+        <h2 class="vname" id="vA-name">Конструктор программ для бизнеса</h2>
+      </div>
+    </header>
+    <div class="goal">
+      <p class="goal-lbl">Метацель</p>
+      <p class="goal-txt" id="goal-src-A"></p>
+    </div>
+    <dl class="facts">
+      <dt>Как растем</dt><dd>Автоматизируем создание программы и удешевляем сопровождение. Программа становится дешевле, запускается за день и доказывает эффект, ее легче продать. Число программ растет кратно без роста команды.</dd>
+      <dt>Как зарабатываем</dt><dd>Подписка по числу участников, платные контент-пакеты, комиссия с партнерских поощрений.</dd>
+      <dt>Метрики</dt><dd>Запуски программ в месяц, выручка на программу, часы команды на запуск и сопровождение.</dd>
+      <dt>Опора</dt><dd>Около 30 программ с 2023 года: ЛеманаПРО, Мегафон, Северсталь, РЖД, Инвитро, АстраЗенека. Пока каждую собирает команда вручную.</dd>
+      <dt>Где тонко</dt><dd>Упирается в веб-разработку: на всю админку один fullstack-разработчик. Контент-пакеты делают методисты, это отдельный бюджет.</dd>
+    </dl>
+    <p class="vsum" id="vsum-A"></p>
+    <div class="cards" id="cards-A"></div>
+  </article>
+
+  <article class="vector vB" aria-labelledby="vB-name">
+    <header class="vhead">
+      <div class="plate" aria-hidden="true">Б</div>
+      <div>
+        <p class="vkicker">Вектор Б · массовый B2C</p>
+        <h2 class="vname" id="vB-name">5 млн участников и беговые центры</h2>
+      </div>
+    </header>
+    <div class="goal">
+      <p class="goal-lbl">Метацель</p>
+      <p class="goal-txt" id="goal-src-B"></p>
+    </div>
+    <dl class="facts">
+      <dt>Как растем</dt><dd>Город → сообщества → люди. У каждого бегового центра свое лицо, клубы получают инфраструктуру и приводят участников, человек видит свой прогресс и возвращается.</dd>
+      <dt>Как зарабатываем</dt><dd>Участие бесплатное. Платят за услуги: шкафчики и групповые тренировки в БЦ, тренеров (комиссия биржи), слоты на старты RR, премиум-планы. Плюс партнеры.</dd>
+      <dt>Метрики</dt><dd>Активные участники в месяц, доля вернувшихся в БЦ, участники, пришедшие по приглашению.</dd>
+      <dt>Опора</dt><dd>Около 85 тыс. пользователей, 23 беговых центра к концу 2026 года. Уже работают бронь шкафчиков и камер хранения, запись на групповые тренировки, задания с геометкой первого посещения.</dd>
+      <dt>Где тонко</dt><dd>Чтобы дойти до 5 млн к 2030 году, аудитория должна расти примерно в 3,5 раза в год. Нужны нагрузочная устойчивость и продвижение. Прямых денег мало.</dd>
+    </dl>
+    <p class="vsum" id="vsum-B"></p>
+    <div class="cards" id="cards-B"></div>
+  </article>
+</section>
+
+<section class="matrix" aria-labelledby="mx-h">
+  <div class="sec-head">
+    <h2 id="mx-h">Что приносит деньги и что приводит людей</h2>
+    <p>Те же 24 блока, разложенные по двум весам. Нажмите на блок, чтобы отметить его. Пунктиром обведены клетки, где блок дает и то и другое.</p>
+  </div>
+  <div class="mx" id="mx"></div>
+</section>
+
+<section class="result" id="itog" aria-labelledby="itog-h">
+  <h2 id="itog-h">Ваш вариант</h2>
+  <div class="steps">
+    <div class="step">
+      <h3><span class="n">1</span>Метацель</h3>
+      <div class="choice" role="radiogroup" aria-label="Метацель">
+        <label><input type="radio" name="goal" id="goal-A" value="A"><span>А · бизнес</span></label>
+        <label><input type="radio" name="goal" id="goal-B" value="B"><span>Б · 5 млн</span></label>
+        <label><input type="radio" name="goal" id="goal-C" value="C"><span>Своя формулировка</span></label>
+      </div>
+      <textarea id="goal-text" rows="5" placeholder="Выберите метацель А или Б и поправьте формулировку под себя" disabled></textarea>
+      <div class="goal-tools"><span id="goal-note">Текст можно править прямо здесь.</span><button type="button" class="linkbtn" id="goal-reset">Вернуть исходный текст</button></div>
+      <p class="cover" id="coverage"></p>
+    </div>
+    <div class="step">
+      <h3><span class="n">2</span>Выбранные блоки</h3>
+      <div class="picked" id="picked"></div>
+      <div class="weights" id="weights"></div>
+    </div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">3</span>Срок и команда</h3>
+    <div class="dl-row">
+      <span class="lbl">Успеть к:</span>
+      <div class="choice" role="radiogroup" aria-label="Срок">
+        <label><input type="radio" name="dl" id="dl-2027" value="2027"><span>концу 2027</span></label>
+        <label><input type="radio" name="dl" id="dl-2028" value="2028"><span>концу 2028</span></label>
+        <label><input type="radio" name="dl" id="dl-2029" value="2029"><span>концу 2029</span></label>
+      </div>
+    </div>
+    <p class="verdict" id="verdict" aria-live="polite"></p>
+    <div class="lg" aria-hidden="true"><span><i style="background:var(--base)"></i>Обязательная база</span><span><i style="background:var(--a)"></i>Блоки вектора А</span><span><i style="background:var(--b)"></i>Блоки вектора Б</span></div>
+    <div class="lanes" id="lanes"></div>
+    <p class="hint">Полоса показывает, сколько недель роль занята базой и выбранными блоками, начиная с 1 октября 2026 года. Число людей можно менять кнопками. По умолчанию состав включает две открытые вакансии: QA-автоматизатора и второго дизайнера. <button type="button" class="linkbtn" id="team-reset">Вернуть состав</button></p>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">4</span>Поделиться</h3>
+    <div class="share-row"><button type="button" class="btn primary" id="copy-btn">Скопировать итог</button><span class="status" id="copy-status" role="status"></span></div>
+    <textarea id="summary" rows="11" readonly aria-label="Итог варианта текстом"></textarea>
+    <div class="code-row">
+      <label for="code-in">Открыть вариант по коду из итога</label>
+      <div class="code-in"><input id="code-in" type="text" placeholder="v1.A1-B5.gB.d2027.t3-2-1-2-2" autocomplete="off" spellcheck="false"><button type="button" class="btn" id="code-btn">Открыть</button></div>
+      <span class="status" id="code-status" role="status"></span>
+    </div>
+  </div>
+</section>
+
+<section class="method" aria-labelledby="m-h">
+  <div class="sec-head"><h2 id="m-h">Как считали</h2></div>
+  <div class="method-grid">
+    <div class="prose">
+      <p><b>Команда.</b> Три бэкенд-разработчика (C# .NET), два мобильных (React Native), один fullstack веб-разработчик (Vue: админка и сайт), тестировщик и дизайнер. Плюс две открытые вакансии: QA-автоматизатор и второй дизайнер. Продакт, архитектор, аналитик и PM в часы блоков не входят: постановка и управление — их постоянная работа.</p>
+      <p><b>Часы в неделю.</b> 40 ч × <span data-out="prod">75</span>% производительности. Из оставшегося около <span data-out="sup">20</span>% уходит на поддержку, релизы и сборку программ для действующих клиентов, еще около <span data-out="vac">15</span>% времени — отпуска и праздники. На блоки роадмэпа остается <b id="pp-out">≈ 20 ч</b> в неделю на человека.</p>
+      <p><b>Вес блока</b> — полный цикл в часах: дизайн, разработка, тестирование. Оценки откалиброваны по старому и текущему роадмэпу и разложены по ролям: у админки больше веба, у приложения — мобильной разработки.</p>
+      <p><b>Срок блока.</b> Часы каждой роли делим на ее недельную мощность и берем самую долгую роль: это узкое место. <b>Срок варианта</b> считаем так же для суммы базы и выбранных блоков, от 1 октября 2026 года. Роли работают параллельно, поэтому срок варианта меньше суммы сроков блоков.</p>
+      <p><b>Аудитория и деньги.</b> Экспертная оценка вклада блока: 3 — сильный прямой эффект, 2 — заметный, 1 — косвенный, 0 — нет.</p>
+      <p><b>Точность ±40%.</b> Это верхнеуровневая оценка без проработки требований. После выбора блоков — декомпозиция и переоценка вместе с командой.</p>
+      <div class="assump">
+        <label for="in-prod">Производительность <input id="in-prod" type="number" min="40" max="100" step="5" inputmode="numeric"> %</label>
+        <label for="in-sup">Поддержка и релизы <input id="in-sup" type="number" min="0" max="60" step="5" inputmode="numeric"> %</label>
+        <label for="in-vac">Отпуска и праздники <input id="in-vac" type="number" min="0" max="40" step="1" inputmode="numeric"> %</label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="notes" aria-labelledby="n-h">
+  <div class="sec-head"><h2 id="n-h">Что важно учесть</h2></div>
+  <ul>
+    <li><b>Срок цели.</b> В «Концепции развития программы БЦ ВФЛА» стоит 5 млн участников к 2028 году, в постановке — к 2030. От ~85 тыс. сейчас это рост примерно в 6 раз в год до конца 2028 или в 3,5 раза в год до начала 2030. Срок стоит сверить до встречи.</li>
+    <li><b>База загружает бэкенд.</b> <span id="note-base"></span></li>
+    <li><b>Не только разработка.</b> Контент-пакеты, модерация, работа с клубами и продвижение требуют людей и бюджета вне команды разработки.</li>
+    <li><b>Действующие клиенты.</b> Корпоративные программы с договорными обязательствами остаются при любом векторе: их поддержка заложена в долю времени на поддержку.</li>
+    <li><b>Смена ролей.</b> Продакт и архитектор передают дела в течение месяца. Оценки стоит перепроверить с новыми.</li>
+  </ul>
+  <p class="hint">За рамками этого роадмэпа остаются части замысла цифрового пространства беговых центров: волонтеры, кабинеты объектов спорта и организаторов стартов, медицинские справки и страховки, разряды, сборы и выезды, интеграция с ЕПГУ. Их разумно планировать после 2027 года.</p>
+</section>
+
+
+
+</div>
+
+<div class="dock" id="dock" role="region" aria-label="Итог выбора">
+  <div class="dock-in">
+    <span id="d-count"></span>
+    <span id="d-fin"></span>
+    <span class="d-pill" id="d-pill"></span>
+    <a class="d-link" href="#itog">Итог ↓</a>
+  </div>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+(function () {
+  "use strict";
+
+  var WEEK = 604800000;
+  var START = new Date(2026, 9, 1);
+  var DEADLINES = { 2027: new Date(2027, 11, 31), 2028: new Date(2028, 11, 31), 2029: new Date(2029, 11, 31) };
+  var MONTHS = ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"];
+  var MONTHS_DAT = ["январю", "февралю", "марту", "апрелю", "маю", "июню", "июлю", "августу", "сентябрю", "октябрю", "ноябрю", "декабрю"];
+  var ROMAN = ["I", "II", "III", "IV"];
+  var NB = " ";
+  var nf = new Intl.NumberFormat("ru-RU");
+
+  var ROLES = [
+    { id: "be", name: "Бэкенд", sub: "C# .NET", acc: "бэкенд", short: "бэкенд" },
+    { id: "mob", name: "Мобильная разработка", sub: "React Native", acc: "мобильную разработку", short: "мобильная" },
+    { id: "web", name: "Веб", sub: "fullstack: админка и сайт", acc: "веб-разработку", short: "веб" },
+    { id: "qa", name: "Тестирование", sub: "в штате 1, ищем автоматизатора", acc: "тестирование", short: "QA" },
+    { id: "des", name: "Дизайн", sub: "в штате 1, ищем второго", acc: "дизайн", short: "дизайн" }
+  ];
+  var RIDS = ROLES.map(function (r) { return r.id; });
+  var RBY = {}; ROLES.forEach(function (r) { RBY[r.id] = r; });
+  var DEF_TEAM = { be: 3, mob: 2, web: 1, qa: 2, des: 2 };
+
+  function sp(be, mob, web, qa, des) { return { be: be, mob: mob, web: web, qa: qa, des: des }; }
+
+  var BASE = [
+    { id: "P1", title: "Платежная система: оплата тренировок и услуг БЦ", hours: 800, src: "оценка", split: sp(.50, .20, .10, .15, .05) },
+    { id: "P2", title: "Миграция инфраструктуры в контур ВФЛА", hours: 480, src: "роадмэп", split: sp(.80, .05, 0, .15, 0) },
+    { id: "P3", title: "Триггерные push беговых центров", hours: 224, src: "роадмэп", split: sp(.55, .25, .05, .15, 0) },
+    { id: "P4", title: "Роли администратора на бэкенде", hours: 160, src: "роадмэп", split: sp(.60, 0, .25, .15, 0) },
+    { id: "P5", title: "Аналитика по БЦ в панели администратора", hours: 120, src: "оценка", split: sp(.40, 0, .40, .12, .08) },
+    { id: "P6", title: "Семейный доступ", hours: 112, src: "роадмэп", split: sp(.40, .30, .10, .12, .08) },
+    { id: "P7", title: "iCUBE: тренировки", hours: 80, src: "оценка", split: sp(.70, .10, .05, .15, 0) },
+    { id: "P8", title: "Подключение Huawei и Honor", hours: 80, src: "оценка", split: sp(.20, .65, 0, .15, 0) },
+    { id: "P9", title: "Целевые тренировочные планы, MVP", hours: 48, src: "роадмэп", split: sp(.40, .35, .05, .15, .05) },
+    { id: "P10", title: "Два слота подряд при брони двух тренировок", hours: 32, src: "роадмэп", split: sp(.80, .05, 0, .15, 0) }
+  ];
+
+  var BLOCKS = [
+    { id: "A1", v: "A", core: true, short: "Мастер сборки", title: "Мастер сборки программы «за час»", hours: 900, split: sp(.45, .02, .25, .20, .08), aud: 1, money: 3,
+      desc: "Программа собирается из шаблона по шагам, без разработчиков: бренд, участники и даты, дисциплины, контент, публикация.",
+      items: ["Шаблоны: «Осенний марафон», «Новогодний челлендж», «Корпоративные игры», «Программа для велосипедистов»", "Клонирование готовой программы со всеми заданиями, номинациями и поощрениями", "Пошаговый мастер: бренд → участники и даты → дисциплины → контент из каталогов → публикация", "Ссылка, QR-код и промоматериалы для приглашения участников"],
+      have: "Сейчас программу собирает команда вручную: Мегафон — 48 ч, Беговые центры — 30 ч, Фармэко — 25 ч.",
+      extra: "Проектный офис готовит первые шаблоны.",
+      calib: "Клонирование МП — 500 ч по оценке старого роадмэпа." },
+    { id: "A2", v: "A", core: true, short: "Контент-пакеты", title: "Каталог контент-пакетов", hours: 600, split: sp(.35, .10, .27, .18, .10), aud: 1, money: 3,
+      desc: "Готовые цепочки заданий и сценарии участия с номинациями, целями и ачивками. Базовый пакет входит в подписку, экспертные продаются отдельно.",
+      items: ["Пакеты «Базовый», «Для бегунов», «Для офиса» и экспертные: «Тренировочный план к 10 км», «Челлендж от олимпийского чемпиона», «Питание»", "Превью и подключение пакета к программе в один клик, групповое добавление заданий", "Доступ к платным пакетам по тарифу, учет продаж и доли авторов", "Тренинги с проверкой прочтения, квизы, видеоуроки"],
+      have: "Общие каталоги заданий, номинаций и поощрений; цепочки заданий, тренинги и челленджи.",
+      extra: "Пакеты производят методисты и эксперты — это отдельный бюджет.",
+      calib: "Цепочки заданий — 298 ч." },
+    { id: "A3", v: "A", core: true, short: "Онлайн-продажа", title: "Онлайн-продажа: тариф, договор, оплата", hours: 800, split: sp(.45, 0, .27, .20, .08), aud: 0, money: 3,
+      desc: "Клиент сам считает стоимость в калькуляторе, принимает оферту и платит. Путь от договора до денег на счете проходит без менеджера.",
+      items: ["Калькулятор: подписка по числу участников и платные пакеты (пример с доски: 10 000 ₽ в месяц за 10 участников и 100 ₽ за каждого следующего)", "Оферта или договор онлайн, счет, акт, оплата картой и по счету", "Лимиты тарифа, продление, переход на старший тариф", "Выручка и юнит-экономика по каждой программе"],
+      have: "Платежные микросервисы переиспользуем из фотосервиса (в базе). Биллинга для юрлиц нет.",
+      extra: "Оферта и тарифы — юристы и финансы. Включение в реестр российского ПО дает льготу по НДС.",
+      calib: "" },
+    { id: "A4", v: "A", core: true, short: "Без ручного труда", title: "Сопровождение без ручного труда", hours: 650, split: sp(.40, .05, .15, .35, .05), aud: 1, money: 2,
+      desc: "Чтобы стоимость поддержки не росла вместе с числом программ, автоматизируем диагностику, проверки и рутинные операции.",
+      items: ["Диагностика обращения: ошибка системы или настройки программы", "Автоматическая проверка фото и видео, загруженных в задания", "Инструменты оператора: точечное удаление тренировок со списанием баллов, массовые операции", "Автотесты ключевых сценариев, алерты по бизнес-метрикам"],
+      have: "Мониторинг Prometheus и Grafana, логи в Loki. Автотестов почти нет, ищем QA-автоматизатора.",
+      extra: "",
+      calib: "Четыре базовых алерта — 32 ч." },
+    { id: "A5", v: "A", core: false, short: "Аналитика для HR", title: "Аналитика эффективности для HR", hours: 650, split: sp(.45, 0, .30, .17, .08), aud: 0, money: 2,
+      desc: "Отчет, который показывает руководству клиента, сколько сотрудников стали активнее и насколько. Главный аргумент для продления и допродажи.",
+      items: ["Воронка: приглашены → зарегистрировались → активны → занимаются регулярно", "Динамика активности и индекса ОФП по отделам и филиалам", "Сравнение с программами других компаний отрасли", "Отчет для руководства в один клик"],
+      have: "Дашборды программ и выгрузки отчетов, по доске «Целевой образ» готовность около 25%.",
+      extra: "Методику оценки эффекта согласуем с HR-клиентами.",
+      calib: "Отчет «Общая статистика по участникам» — 129 ч." },
+    { id: "A6", v: "A", core: false, short: "Кабинет организатора", title: "Кабинет организатора", hours: 800, split: sp(.30, 0, .40, .18, .12), aud: 0, money: 2,
+      desc: "Редизайн панели администратора в кабинет клиента: организатор сам ведет участников, задания, цели и рассылки своей программы.",
+      items: ["Роли: организатор, менеджер, модератор", "Участники, команды, задания и поощрения своей программы", "Новые общие цели в середине программы, скрытие и удаление заданий", "Рассылки и баннеры для своей аудитории"],
+      have: "Рабочее место оператора (около 60% по доске), кабинет организатора — около 20%. Роли на бэкенде — в базе.",
+      extra: "",
+      calib: "Функция «Скрыть задание» — 80 ч." },
+    { id: "A7", v: "A", core: false, short: "Автопилот", title: "Автопилот программы", hours: 650, split: sp(.45, .15, .15, .18, .07), aud: 2, money: 2,
+      desc: "Программа сама подсказывает участнику следующий шаг, а организатору — что запустить и кого вернуть. Меньше ручного ведения, выше вовлеченность.",
+      items: ["Триггерные push и письма по сегментам: напоминания о заданиях, следующее целевое действие", "Рекомендации организатору: какие задания не работают, когда запустить челлендж", "Возврат участников, которые перестали заниматься", "Сначала правила, затем модели"],
+      have: "E-mail и push-уведомления через Firebase. Триггерные push беговых центров — в базе.",
+      extra: "",
+      calib: "Триггерные push беговых центров — 224 ч." },
+    { id: "A8", v: "A", core: false, short: "Призы партнеров", title: "Партнерские поощрения", hours: 500, split: sp(.45, .15, .15, .18, .07), aud: 1, money: 2,
+      desc: "Готовый каталог наград от партнеров: организатору не нужно искать призы, платформа получает комиссию.",
+      items: ["Каталог партнерских поощрений с бюджетом организатора", "Обмен баллов на баллы лояльности партнеров (Фитпэй: «Спортмастер», Nordski)", "Новые типы поощрений: файлы, билеты, возобновляемые промокоды", "Кабинет партнера и отчеты о выдаче"],
+      have: "Маркет поощрений с промокодами и розыгрышами. Фитпэй на паузе.",
+      extra: "Договоры с партнерами.",
+      calib: "Фитпэй — 40 ч; возобновляемая покупка — 50 ч." },
+    { id: "A9", v: "A", core: false, short: "Экономика баллов", title: "Экономика баллов", hours: 450, split: sp(.60, .06, .12, .18, .04), aud: 0, money: 2,
+      desc: "Активность превращается в баллы, а баллы — в поощрения без перерасхода: организатор заранее знает, во сколько обойдутся награды.",
+      items: ["Обоснованная конвертация активности в баллы", "Автоматическое сгорание баллов", "Бюджет и лимиты поощрений, прогноз расходов", "Массовый возврат баллов при отмене розыгрыша или события"],
+      have: "Кошелек, история операций, начисление баллов за тренировки и шаги.",
+      extra: "",
+      calib: "Массовый возврат баллов — 100 ч." },
+    { id: "A10", v: "A", core: false, short: "Командные игры", title: "Командные игры и оргструктура", hours: 700, split: sp(.38, .22, .12, .18, .10), aud: 1, money: 2,
+      desc: "Соревнования отделов и филиалов — главный запрос HR. Иерархия команд, гибкие правила командного рейтинга, игровые форматы.",
+      items: ["Иерархия «компания → филиал → отдел», номинации с древовидной структурой", "Стратегии пересчета командного рейтинга", "Фитнес-игры для команд: «Экспедиции», «Вершины мира»", "Командные задания и ачивки"],
+      have: "Команды, командные номинации и ачивки, рейтинг вовлеченности.",
+      extra: "",
+      calib: "Командные ачивки и прогресс — 117 ч." },
+    { id: "A11", v: "A", core: false, short: "Корп. контур", title: "Корпоративный контур", hours: 650, split: sp(.35, .25, .15, .18, .07), aud: 1, money: 3,
+      desc: "Требования крупных клиентов: вход через корпоративную учетную запись, загрузка оргструктуры, свой бренд.",
+      items: ["Вход через корпоративный SSO", "Загрузка сотрудников и оргструктуры из HR-системы", "Брендирование программы без разработки", "White label приложения по запросу крупного клиента"],
+      have: "Вход через VK ID и Яндекс ID, темизация программ токенами дизайн-системы.",
+      extra: "",
+      calib: "" },
+    { id: "A12", v: "A", core: false, short: "Любая активность", title: "Любая активность засчитывается", hours: 600, split: sp(.40, .35, .05, .17, .03), aud: 1, money: 2,
+      desc: "Для wellbeing важен не только бег. Честный учет любых тренировок и нескольких устройств у одного участника.",
+      items: ["Нециклические тренировки, этап 2: время в пульсовых зонах", "Несколько трекеров у участника в одной программе, рефакторинг встроенного трекера", "Раздельный учет бега по GPS и на беговой дорожке", "Ручное добавление тренировок с античитом, блокировка читеров"],
+      have: "Garmin, Polar, Suunto, Apple Health и Health Connect; нециклические тренировки с ккал; шаги как активность.",
+      extra: "",
+      calib: "Нециклические тренировки, MVP — 100 ч." },
+
+    { id: "B1", v: "B", core: true, short: "Вход без барьеров", title: "БегунДа на первом экране, вход без барьеров", hours: 800, split: sp(.28, .40, .04, .16, .12), aud: 3, money: 0,
+      desc: "Открытая программа БегунДа — главная в приложении. Новичок смотрит без регистрации, входит в одно касание и сразу получает первую цель по своему уровню.",
+      items: ["БегунДа на первом экране, корпоративные программы — отдельно", "Гостевой режим: программа, беговые центры и календарь без регистрации", "Вход через Госуслуги (ЕСИА), VK ID, Яндекс ID", "Онбординг по уровню: новичок, любитель, опытный — и первая цель", "Диплинки из рекламы, писем и push сразу на нужный экран"],
+      have: "Вход через VK ID и Яндекс ID, верификация номера через MAX и MobileID, онбординг 2.0.",
+      extra: "Вход через Госуслуги требует отдельной процедуры подключения к ЕСИА.",
+      calib: "Сокращение регистрации до email и имени — 100 ч; помощник-онбординг — 47 ч." },
+    { id: "B2", v: "B", core: true, short: "Клубы", title: "Клубы и сообщества", hours: 1000, split: sp(.35, .32, .08, .15, .10), aud: 3, money: 1,
+      desc: "Беговые центры дают клубам инфраструктуру, клубы приводят людей. У клуба своя страница, капитан, тренировки с записью и чат.",
+      items: ["Страница клуба: логотип, описание, соцсети, новости, состав", "Заявки и подтверждение членства, роли капитана и амбассадора", "Клубные тренировки в календаре с записью и отметкой посещения", "Чат клуба: сначала группа в MAX, свой чат позже", "Статистика капитана: кого пригласил и как они занимаются"],
+      have: "Команды с заявками на вступление, поиск по команде, простой раздел «Амбассадоры».",
+      extra: "Комьюнити-менеджер для работы с клубами и капитанами.",
+      calib: "" },
+    { id: "B3", v: "B", core: true, short: "Рефералы", title: "Рефералы", hours: 450, split: sp(.40, .30, .08, .15, .07), aud: 3, money: 0,
+      desc: "Участники, капитаны и амбассадоры приводят друзей и семью и получают растущие награды. Самый дешевый канал роста.",
+      items: ["Персональные ссылки и QR-коды, готовые материалы для приглашения", "Прогрессия наград; отдельная награда, если приглашенный пришел в БЦ и начал тренироваться", "Статистика приглашенных и их активности", "Рейтинг пригласивших, в том числе по сообществам"],
+      have: "«Пригласи друга 2.0»: реферальный код и баллы за приглашенного.",
+      extra: "",
+      calib: "" },
+    { id: "B4", v: "B", core: true, short: "Масштаб 5 млн", title: "Масштаб до 5 млн", hours: 900, split: sp(.65, .10, .03, .20, .02), aud: 3, money: 0,
+      desc: "Сейчас около 85 тыс. пользователей. На 5 млн рейтинги, уведомления и поддержка должны работать без сбоев и очередей, а стоимость инфраструктуры — расти медленнее аудитории.",
+      items: ["Пересчет номинаций и рейтингов на сотни тысяч участников в одной программе", "Нагрузочные тесты, кэш, горизонтальное масштабирование", "Стоимость инфраструктуры на одного участника", "Чат-бот поддержки в приложении вместо почты, самостоятельное удаление профиля"],
+      have: "Микросервисы в Kubernetes, очереди пересчета номинаций.",
+      extra: "Бюджет на инфраструктуру растет вместе с аудиторией.",
+      calib: "" },
+    { id: "B5", v: "B", core: false, short: "Старты RR", title: "Старты Russia Running", hours: 800, split: sp(.45, .28, .04, .15, .08), aud: 3, money: 3,
+      desc: "Календарь стартов RR в приложении, покупка слота в пару касаний, баллы за участие, результаты и фото в профиле. Открывает аудиторию стартов и приносит деньги.",
+      items: ["Единый календарь стартов с фильтрами по городу, дистанции и дате", "Покупка слота через билетный сервис RR, не выходя из приложения", "Задания и баллы за регистрацию и финиш", "Результаты с хронометража и фото со старта (MySportPhoto) в профиле", "Единый рейтинг любителя как задел под разряды ВФЛА"],
+      have: "Вход через RussiaRunning ID, учет участия в событиях RR в заданиях, единый календарь событий.",
+      extra: "API билетного сервиса RR; модель дохода между RR и ВФЛА.",
+      calib: "Учет участия в событиях сторонних организаторов — 90 ч; учет регистрации через Timepad и RR — 60 ч." },
+    { id: "B6", v: "B", core: false, short: "Мой город и БЦ", title: "Мой город и мой беговой центр", hours: 900, split: sp(.35, .30, .12, .15, .08), aud: 2, money: 1,
+      desc: "У каждого бегового центра свое лицо: локальные задания, календарь, награды, баннеры и соревнования. Участник видит свой город, а в поездке — другой.",
+      items: ["Выбор города и основного БЦ; задания, календарь, маркет, ачивки и баннеры по городу", "Страница БЦ: фото, расписание, услуги, клубы, новости", "Интерактивная карта беговых центров и спортивных объектов", "«День бегового центра» в календаре с записью"],
+      have: "Бронь шкафчиков и камер хранения, запись на групповые тренировки (iCUBE), выбор основного БЦ.",
+      extra: "",
+      calib: "Фильтр по городам в маркете — 65 ч; категории заданий для фильтра — 60 ч." },
+    { id: "B7", v: "B", core: false, short: "Лента и лайки", title: "Живая лента и лайки", hours: 1100, split: sp(.35, .35, .05, .15, .10), aud: 3, money: 1,
+      desc: "Бег — социальный спорт. Лента тренировок программы, клуба и друзей, лайки, комментарии и шеринг, чтобы хотелось показать результат и вернуться.",
+      items: ["Лента: тренировки и достижения участников программы, клуба, друзей", "Лайки, комментарии, подписки", "Карточки результата для VK, Telegram и MAX", "Раздел уведомлений и новостей программы, БЦ и клуба", "Фото к тренировке, модерация и жалобы"],
+      have: "Раздел «Участники», журнал активности. Ленты нет.",
+      extra: "Модерация контента.",
+      calib: "" },
+    { id: "B8", v: "B", core: false, short: "Регулярность", title: "Регулярность и привычка", hours: 700, split: sp(.30, .38, .05, .15, .12), aud: 3, money: 0,
+      desc: "Важно не зарегистрировать, а вернуть. Серии, паспорт беговых центров и отметка посещения превращают разовый визит в привычку.",
+      items: ["Серии: например, два посещения БЦ в неделю 5–10 недель подряд", "Виртуальный паспорт со штампами за разные БЦ: «Исследователь», «Путешественник», «Легенда беговых центров»", "Отметка посещения тренировки по QR-коду или геометке", "Личная цель с прогрессом и напоминаниями"],
+      have: "Цели по шагам, ачивки, уровни (XP), задание с геометкой первого посещения.",
+      extra: "",
+      calib: "" },
+    { id: "B9", v: "B", core: false, short: "Лиги и сезоны", title: "Лиги и сезоны", hours: 700, split: sp(.45, .25, .08, .15, .07), aud: 2, money: 1,
+      desc: "Соревнование сразу на трех уровнях: между беговыми центрами, между клубами города и личное. Сезоны дают инфоповоды для городских СМИ.",
+      items: ["Лига беговых городов: динамика каждый месяц, этап раз в квартал, звание «Город чемпионов»", "Лига клубов внутри города", "Личный зачет и детская категория", "Кубки и звания на страницах города, клуба и участника"],
+      have: "Номинации 2.0 с пересчетом, командные номинации, рейтинг вовлеченности городов.",
+      extra: "Спонсоры сезонов и призов.",
+      calib: "" },
+    { id: "B10", v: "B", core: false, short: "Трен. планы", title: "Тренировочные планы", hours: 1000, split: sp(.35, .35, .05, .15, .10), aud: 2, money: 2,
+      desc: "Планы к 5, 10, 21 и 42 км под уровень участника, которые подстраиваются по данным трекера. Базовые бесплатно, персональные по подписке.",
+      items: ["Планы под цель и уровень, библиотека упражнений и видеотренировок", "Планировщик: личные и групповые тренировки в одном календаре", "Адаптация плана по фактическим тренировкам, ИИ-рекомендации следующим шагом", "Премиум-подписка на персональные планы"],
+      have: "MVP целевых тренировочных планов — в работе, в базе.",
+      extra: "",
+      calib: "" },
+    { id: "B11", v: "B", core: false, short: "Биржа тренеров", title: "Биржа тренеров", hours: 1400, split: sp(.40, .25, .12, .15, .08), aud: 1, money: 3,
+      desc: "Тренеры, массажисты, медики и диетологи публикуют слоты в беговых центрах и в городе. Участник записывается и платит в приложении, платформа берет комиссию.",
+      items: ["Регистрация и модерация специалистов, профиль, отзывы, рейтинг", "Слоты индивидуальных и групповых тренировок с бронью зала, дорожки или шкафчика", "Оплата в приложении и возвраты", "Выплаты специалистам за вычетом комиссии: ИП, самозанятым, организациям"],
+      have: "Групповые тренировки и бронирование в БЦ. Оплата услуг БЦ — в базе.",
+      extra: "Юридическая модель выплат, модерация специалистов.",
+      calib: "" },
+    { id: "B12", v: "B", core: false, short: "Маркет", title: "Маркет наград и услуг", hours: 650, split: sp(.35, .30, .12, .15, .08), aud: 1, money: 2,
+      desc: "Маркет как на маркетплейсе: размеры и фото, выбор даты события, билеты, оплата баллами и деньгами, раздел «Только в беговом центре».",
+      items: ["Карточка с размером, цветом и несколькими фото; выбор даты и времени события", "PDF-билет, возобновляемые промокоды, открытая цена для благотворительности", "Раздел «Только в БЦ» и локальные награды", "Оплата баллами, деньгами или вместе"],
+      have: "Маркет поощрений за баллы с промокодами и розыгрышами.",
+      extra: "Мерч за деньги — только офлайн из-за маркировки «Честный знак». Рассматривается готовое решение EPSILON.",
+      calib: "Возобновляемая покупка — 50 ч." }
+  ];
+  var BY = {}; BLOCKS.forEach(function (b) { BY[b.id] = b; });
+
+  var GOALS = {
+    A: "Платформа БегунДа — конструктор мотивационных wellbeing-программ с подпиской на готовый контент. Любая компания, сообщество или лидер без технических знаний запускает свою программу ЗОЖ с готовыми заданиями и наградами, как сайт на Tilda.",
+    B: "БегунДа — открытая программа для всех, кто бегает, и цифровой вход в беговые центры ВФЛА. К 2030 году 5 млн любителей бега любого уровня тренируются, соревнуются, общаются в приложении и регулярно приходят в беговые центры своего города.",
+    C: "БегунДа — открытая программа и цифровой вход в беговые центры ВФЛА: 5 млн участников к 2030 году. Корпоративные программы собираются из тех же блоков без участия команды и приносят деньги на развитие."
+  };
+  var GOAL_LABEL = { A: "вектор А", B: "вектор Б", C: "своя формулировка" };
+  var CORE = { A: ["A1", "A2", "A3", "A4"], B: ["B1", "B2", "B3", "B4"] };
+  var PRESETS = {
+    coreA: CORE.A.slice(),
+    coreB: CORE.B.slice(),
+    coreBmoney: ["B1", "B2", "B3", "B4", "B5", "B10", "B11", "B12"],
+    allA: BLOCKS.filter(function (b) { return b.v === "A"; }).map(function (b) { return b.id; }),
+    allB: BLOCKS.filter(function (b) { return b.v === "B"; }).map(function (b) { return b.id; }),
+    none: []
+  };
+
+  /* состояние */
+  var KEY = "begunda-razvilka-v1";
+  function defaults() {
+    return { sel: [], goal: null, texts: { A: GOALS.A, B: GOALS.B, C: GOALS.C }, dl: 2027, team: Object.assign({}, DEF_TEAM), prod: 75, sup: 20, vac: 15, full: false };
+  }
+  function clampInt(v, lo, hi, d) { v = parseInt(v, 10); if (isNaN(v)) return d; return Math.min(hi, Math.max(lo, v)); }
+  function sanitize(o) {
+    var s = defaults();
+    if (!o || typeof o !== "object") return s;
+    if (Array.isArray(o.sel)) s.sel = o.sel.filter(function (id) { return BY[id]; });
+    if (o.goal === "A" || o.goal === "B" || o.goal === "C") s.goal = o.goal;
+    if (o.texts && typeof o.texts === "object") ["A", "B", "C"].forEach(function (k) { if (typeof o.texts[k] === "string") s.texts[k] = o.texts[k]; });
+    if (DEADLINES[o.dl]) s.dl = Number(o.dl);
+    if (o.team && typeof o.team === "object") RIDS.forEach(function (r) { s.team[r] = clampInt(o.team[r], 0, 12, DEF_TEAM[r]); });
+    s.prod = clampInt(o.prod, 40, 100, 75); s.sup = clampInt(o.sup, 0, 60, 20); s.vac = clampInt(o.vac, 0, 40, 15);
+    s.full = !!o.full;
+    return s;
+  }
+  function load() { try { var raw = localStorage.getItem(KEY); if (raw) return sanitize(JSON.parse(raw)); } catch (e) {} return defaults(); }
+  var saveTimer = null;
+  function save() { clearTimeout(saveTimer); saveTimer = setTimeout(function () { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }, 150); }
+  var S = load();
+
+  /* расчет */
+  function pp() { return 40 * (S.prod / 100) * (1 - S.vac / 100) * (1 - S.sup / 100); }
+  function cap(r) { return (S.team[r] || 0) * pp(); }
+  function hrsOf(list) {
+    var h = { be: 0, mob: 0, web: 0, qa: 0, des: 0 };
+    list.forEach(function (it) { RIDS.forEach(function (r) { h[r] += it.hours * (it.split[r] || 0); }); });
+    return h;
+  }
+  function weeksOf(h) {
+    var w = 0, bn = null, second = 0;
+    RIDS.forEach(function (r) {
+      if (h[r] <= 0.01) return;
+      var c = cap(r), x = c > 0 ? h[r] / c : Infinity;
+      if (x > w) { second = w; w = x; bn = r; } else if (x > second) { second = x; }
+    });
+    return { w: w, bn: bn, second: second };
+  }
+  function sumHours(list) { return list.reduce(function (a, b) { return a + b.hours; }, 0); }
+  function selBlocks() { return BLOCKS.filter(function (b) { return S.sel.indexOf(b.id) >= 0; }); }
+  function totals() {
+    var sel = selBlocks();
+    var hb = hrsOf(BASE), ha = hrsOf(sel.filter(function (b) { return b.v === "A"; })), hB = hrsOf(sel.filter(function (b) { return b.v === "B"; }));
+    var tot = {}; RIDS.forEach(function (r) { tot[r] = hb[r] + ha[r] + hB[r]; });
+    var fin = weeksOf(tot);
+    var dlw = (DEADLINES[S.dl] - START) / WEEK;
+    var need = {};
+    RIDS.forEach(function (r) {
+      need[r] = tot[r] > 0.01 ? Math.max(0, Math.ceil(tot[r] / (dlw * pp()) - 1e-9) - (S.team[r] || 0)) : 0;
+    });
+    return { sel: sel, hb: hb, ha: ha, hB: hB, tot: tot, fin: fin, dlw: dlw, need: need };
+  }
+
+  /* форматирование */
+  function code(b) { return (b.v === "A" ? "А" : "Б") + b.id.slice(1); }
+  function atWeeks(w) { return new Date(START.getTime() + w * WEEK); }
+  function qLabel(d) { return ROMAN[Math.floor(d.getMonth() / 3)] + NB + "кв." + NB + d.getFullYear(); }
+  function mLabel(d) { return MONTHS[d.getMonth()] + NB + d.getFullYear(); }
+  function mDat(d) { return MONTHS_DAT[d.getMonth()] + NB + d.getFullYear(); }
+  function wkStr(w) { if (!isFinite(w)) return "∞"; if (w < 1) return "<" + NB + "1"; return String(Math.round(w)); }
+  function dots(n) { var s = ""; for (var i = 0; i < 3; i++) s += '<i class="d' + (i < n ? " on" : "") + '"></i>'; return s; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function dstr(d) { function p(n) { return (n < 10 ? "0" : "") + n; } return p(d.getDate()) + "." + p(d.getMonth() + 1) + "." + d.getFullYear(); }
+  function needList(t) {
+    return RIDS.filter(function (r) { return t.need[r] > 0; }).map(function (r) { return RBY[r].short + " +" + t.need[r]; });
+  }
+
+  /* отрисовка статичных частей */
+  function renderBase() {
+    var ul = document.getElementById("base-chips");
+    ul.innerHTML = BASE.map(function (p) {
+      return "<li><b>" + esc(p.title) + "</b><span>" + nf.format(p.hours) + NB + "ч" + (p.src === "оценка" ? ", оценка" : "") + "</span></li>";
+    }).join("");
+    document.getElementById("base-total").textContent = BASE.length + " работ · " + nf.format(sumHours(BASE)) + NB + "ч · уже заложено в сроки";
+  }
+  function cardHTML(b) {
+    var more = "<ul>" + b.items.map(function (i) { return "<li>" + esc(i) + "</li>"; }).join("") + "</ul>";
+    if (b.have) more += "<p><b>Уже есть.</b> " + esc(b.have) + "</p>";
+    if (b.extra) more += "<p><b>Кроме разработки.</b> " + esc(b.extra) + "</p>";
+    if (b.calib) more += "<p><b>Калибровка.</b> " + esc(b.calib) + "</p>";
+    return '<article class="card" data-id="' + b.id + '">' +
+      '<div class="c-head"><input type="checkbox" id="blk-' + b.id + '" aria-labelledby="t-' + b.id + '">' +
+      '<span class="c-code">' + code(b) + '</span><span class="c-title" id="t-' + b.id + '">' + esc(b.title) + "</span>" +
+      (b.core ? '<span class="c-core" title="Без этого блока метацель вектора не достигается">ядро</span>' : "") + "</div>" +
+      '<p class="c-desc">' + esc(b.desc) + "</p>" +
+      '<div class="c-meta"><span class="c-wk">≈' + NB + '<b data-wk></b>' + NB + 'нед.</span><span class="c-h">' + nf.format(b.hours) + NB + "ч</span>" +
+      '<span class="c-bn" data-bn></span>' +
+      '<span class="c-scores"><span class="c-sc" role="img" aria-label="Аудитория: ' + b.aud + ' из 3"><span>Аудитория</span>' + dots(b.aud) + "</span>" +
+      '<span class="c-sc" role="img" aria-label="Деньги: ' + b.money + ' из 3"><span>Деньги</span>' + dots(b.money) + "</span></span></div>" +
+      '<div class="c-more">' + more + "</div></article>";
+  }
+  function renderCards() {
+    ["A", "B"].forEach(function (v) {
+      document.getElementById("cards-" + v).innerHTML = BLOCKS.filter(function (b) { return b.v === v; }).map(cardHTML).join("");
+    });
+    document.getElementById("goal-src-A").textContent = GOALS.A;
+    document.getElementById("goal-src-B").textContent = GOALS.B;
+  }
+  function bucket(x) { return x >= 3 ? 3 : (x === 2 ? 2 : 1); }
+  function renderMatrix() {
+    var rows = [{ k: 3, l: "сильно" }, { k: 2, l: "заметно" }, { k: 1, l: "слабо или нет" }];
+    var cols = [{ k: 1, l: "слабо или нет" }, { k: 2, l: "заметно" }, { k: 3, l: "сильно" }];
+    var h = '<div class="mx-corner"></div>' + cols.map(function (c) { return '<div class="mx-ch">Аудитория: <b>' + c.l + "</b></div>"; }).join("");
+    rows.forEach(function (rw) {
+      h += '<div class="mx-rh">Деньги: <b>' + rw.l + "</b></div>";
+      cols.forEach(function (c) {
+        var list = BLOCKS.filter(function (b) { return bucket(b.money) === rw.k && bucket(b.aud) === c.k; });
+        var hot = rw.k >= 2 && c.k >= 2;
+        h += '<div class="mx-cell' + (hot ? " hot" : "") + '"><span class="cap">Деньги: ' + rw.l + " · аудитория: " + c.l + "</span>" +
+          (list.length ? list.map(function (b) {
+            return '<button type="button" class="pill p' + b.v + '" data-id="' + b.id + '" aria-pressed="false"><i></i><b>' + code(b) + "</b>" + esc(b.short) + "</button>";
+          }).join("") : '<span class="mx-empty">—</span>') + "</div>";
+      });
+    });
+    document.getElementById("mx").innerHTML = h;
+  }
+
+  /* обновление */
+  function update() {
+    var t = totals();
+    var ppw = pp();
+
+    BLOCKS.forEach(function (b) {
+      var card = document.querySelector('.card[data-id="' + b.id + '"]');
+      var on = S.sel.indexOf(b.id) >= 0;
+      card.classList.toggle("on", on);
+      card.querySelector("input").checked = on;
+      var r = weeksOf(hrsOf([b]));
+      card.querySelector("[data-wk]").textContent = wkStr(r.w);
+      var bnTxt = "";
+      if (!isFinite(r.w)) bnTxt = "нет людей: " + RBY[r.bn].short;
+      else if (r.bn && r.w > 1.3 * r.second && r.w >= 3) bnTxt = "упирается в " + RBY[r.bn].acc;
+      card.querySelector("[data-bn]").textContent = bnTxt;
+    });
+    document.querySelectorAll(".pill").forEach(function (p) {
+      var on = S.sel.indexOf(p.dataset.id) >= 0;
+      p.classList.toggle("on", on); p.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+
+    ["A", "B"].forEach(function (v) {
+      var list = BLOCKS.filter(function (b) { return b.v === v; });
+      var r = weeksOf(hrsOf(list));
+      var n = list.filter(function (b) { return S.sel.indexOf(b.id) >= 0; }).length;
+      document.getElementById("vsum-" + v).innerHTML = "<b>" + list.length + " блоков</b> · " + nf.format(sumHours(list)) + NB + "ч. Весь вектор без базы ≈" + NB + "<b>" + wkStr(r.w) + NB + "нед.</b>" +
+        (r.bn ? ", больше всего нагружает " + RBY[r.bn].acc : "") + ". Выбрано: " + n + ".";
+    });
+
+    var rb = weeksOf(t.hb), rp = weeksOf(hrsOf([BASE[0]]));
+    document.getElementById("base-note").textContent = isFinite(rb.w) && isFinite(rp.w)
+      ? "Сама по себе база занимает команду примерно до " + whenGen(atWeeks(rb.w)) + ", узкое место — " + roleNom(rb.bn) + ". Платежи, если делать их первыми, будут готовы к " + whenGen(atWeeks(rp.w)) + "."
+      : "В составе команды нет людей для одной из ролей, поэтому срок базы не посчитать.";
+    var beW = cap("be") > 0 ? t.hb.be / cap("be") : Infinity;
+    document.getElementById("note-base").textContent = isFinite(beW)
+      ? "При текущем составе обязательная база занимает бэкенд примерно до " + whenGen(atWeeks(beW)) + ". Платежи нужны к концу 2026 года, поэтому их стоит ставить первыми."
+      : "В составе нет бэкенд-разработчиков.";
+
+    renderPicked(t);
+    renderCoverage();
+    renderVerdict(t);
+    renderLanes(t);
+    renderDock(t);
+
+    document.getElementById("pp-out").textContent = "≈" + NB + (Math.round(ppw * 10) / 10).toString().replace(".", ",") + NB + "ч";
+    document.querySelectorAll("[data-out]").forEach(function (el) { el.textContent = S[el.dataset.out]; });
+    document.getElementById("summary").value = summaryText(t);
+    save();
+  }
+
+  var MONTHS_GEN = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+  function whenGen(d) { var dd = d.getDate(); return (dd <= 10 ? "начала" : (dd <= 20 ? "середины" : "конца")) + " " + MONTHS_GEN[d.getMonth()] + NB + d.getFullYear(); }
+
+  function renderPicked(t) {
+    var el = document.getElementById("picked");
+    if (!t.sel.length) {
+      el.innerHTML = '<p class="empty">Пока выбрана только обязательная база. Отметьте блоки в векторах, на карте ниже или начните с быстрого выбора.</p>';
+    } else {
+      el.innerHTML = ["A", "B"].map(function (v) {
+        var list = t.sel.filter(function (b) { return b.v === v; });
+        if (!list.length) return "";
+        return '<div class="picked-grp g' + v + '"><h4>Вектор ' + (v === "A" ? "А" : "Б") + " · " + list.length + "</h4><ul>" +
+          list.map(function (b) {
+            var r = weeksOf(hrsOf([b]));
+            return '<li><span class="pc">' + code(b) + '</span><span class="pt">' + esc(b.title) + '</span><span class="pw">≈' + NB + wkStr(r.w) + NB + "нед. · " + nf.format(b.hours) + NB + 'ч</span><button type="button" class="xbtn" data-remove="' + b.id + '" aria-label="Убрать ' + code(b) + '">×</button></li>';
+          }).join("") + "</ul></div>";
+      }).join("");
+    }
+    var w = document.getElementById("weights");
+    if (!t.sel.length) { w.innerHTML = ""; return; }
+    var money = t.sel.filter(function (b) { return b.money >= 3; }).map(code);
+    var aud = t.sel.filter(function (b) { return b.aud >= 3; }).map(code);
+    w.innerHTML = "<div>Итого по выбранным блокам: <b>" + nf.format(sumHours(t.sel)) + NB + "ч</b></div>" +
+      "<div>Сильно приносят деньги: " + (money.length ? money.join(", ") : "нет") + "</div>" +
+      "<div>Сильно растят аудиторию: " + (aud.length ? aud.join(", ") : "нет") + "</div>";
+  }
+
+  function coreLine(v) {
+    var ids = CORE[v], have = ids.filter(function (id) { return S.sel.indexOf(id) >= 0; });
+    var miss = ids.filter(function (id) { return S.sel.indexOf(id) < 0; }).map(function (id) { return code(BY[id]) + " «" + BY[id].title + "»"; });
+    return { n: have.length, of: ids.length, miss: miss };
+  }
+  function renderCoverage() {
+    var el = document.getElementById("coverage");
+    var ta = document.getElementById("goal-text");
+    ta.disabled = !S.goal;
+    ta.value = S.goal ? S.texts[S.goal] : "";
+    document.getElementById("goal-reset").hidden = !S.goal || S.texts[S.goal] === GOALS[S.goal];
+    if (!S.goal) { el.className = "cover"; el.textContent = "Выберите метацель: проверим, что ее ядро есть в варианте."; return; }
+    var parts = [], warn = false;
+    (S.goal === "C" ? ["A", "B"] : [S.goal]).forEach(function (v) {
+      var c = coreLine(v);
+      var name = "Ядро " + (v === "A" ? "А" : "Б");
+      if (S.goal === "C") { parts.push(name + ": " + c.n + " из " + c.of + "."); return; }
+      if (c.miss.length) { warn = true; parts.push(name + ": " + c.n + " из " + c.of + ". Не выбраны " + c.miss.join(", ") + ". Без них метацель не достигается."); }
+      else parts.push(name + ": все " + c.of + " блока в варианте.");
+    });
+    el.className = "cover" + (warn ? " warn" : "");
+    el.textContent = parts.join(" ");
+  }
+
+  function renderVerdict(t) {
+    var el = document.getElementById("verdict");
+    var fin = t.fin.w, dl = "к концу " + S.dl;
+    var none = !t.sel.length;
+    if (!isFinite(fin)) {
+      el.className = "verdict bad";
+      el.innerHTML = '<span class="ic">!</span><span>В команде нет людей для роли «' + esc(RBY[t.fin.bn].name) + '», а у выбранных работ она есть. Добавьте людей в таблице ниже.</span>';
+      return;
+    }
+    var d = atWeeks(fin), ok = fin <= t.dlw + 1e-9;
+    var who = t.fin.bn ? ", узкое место — " + roleNom(t.fin.bn) : "";
+    var head = (none ? "Только обязательная база готова" : "База и " + t.sel.length + " " + plural(t.sel.length, "блок", "блока", "блоков") + " готовы") + " ≈" + NB + qLabel(d) + " (" + mLabel(d) + ")" + who + ". ";
+    if (ok) {
+      el.className = "verdict ok";
+      el.innerHTML = '<span class="ic">✓</span><span>' + esc(head) + "Успеваем " + dl + " текущим составом, запас ≈" + NB + Math.round(t.dlw - fin) + NB + "нед.</span>";
+    } else {
+      el.className = "verdict bad";
+      var nl = needList(t);
+      el.innerHTML = '<span class="ic">!</span><span>' + esc(head) + "Чтобы успеть " + dl + ", не хватает: " + esc(nl.join(", ")) + ". Или уберите часть блоков.</span>";
+    }
+  }
+  function roleNom(r) { return { be: "бэкенд", mob: "мобильная разработка", web: "веб-разработка", qa: "тестирование", des: "дизайн" }[r]; }
+  function plural(n, one, few, many) { var m10 = n % 10, m100 = n % 100; if (m10 === 1 && m100 !== 11) return one; if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return few; return many; }
+
+  function quarterEnd(d) { var q = Math.floor(d.getMonth() / 3); return new Date(d.getFullYear(), q * 3 + 3, 0); }
+  function renderLanes(t) {
+    var el = document.getElementById("lanes");
+    var act = document.activeElement, keep = act && act.dataset && act.dataset.step ? act.dataset.step + "|" + act.dataset.d : null;
+    var maxW = isFinite(t.fin.w) ? t.fin.w : t.dlw * 1.4;
+    var endBase = atWeeks(Math.max(t.dlw, maxW));
+    var endDate = quarterEnd(new Date(endBase.getFullYear(), endBase.getMonth() + 3, 1));
+    var span = (endDate - START) / WEEK;
+    function pct(w) { return Math.max(0, Math.min(100, w / span * 100)); }
+    var dlp = pct(t.dlw);
+    var years = [];
+    for (var y = START.getFullYear() + 1; y <= endDate.getFullYear(); y++) {
+      var p = pct((new Date(y, 0, 1) - START) / WEEK);
+      if (p > 0 && p < 100) years.push({ y: y, p: p });
+    }
+    var grid = years.map(function (o) { return '<span class="gy" style="left:' + o.p.toFixed(2) + '%"></span>'; }).join("");
+    var h = '<div class="ln ln-head"><span>Роль и люди</span><span>Занятость по неделям</span><span>Готово</span><span>Загрузка к сроку</span><span>Не хватает</span></div>';
+    h += '<div class="ln ln-x"><span class="ln-role"></span><div class="ln-track track">' + '<span class="flag' + (dlp > 70 ? " r" : "") + '" style="left:' + dlp.toFixed(2) + '%">срок: конец ' + S.dl + "</span></div></div>";
+    ROLES.forEach(function (R) {
+      var r = R.id, c = cap(r), n = S.team[r] || 0;
+      var parts = [{ k: "k-base", h: t.hb[r], l: "обязательная база" }, { k: "k-A", h: t.ha[r], l: "блоки вектора А" }, { k: "k-B", h: t.hB[r], l: "блоки вектора Б" }].filter(function (x) { return x.h > 0.01; });
+      var segs = "", x = 0;
+      if (c > 0) {
+        parts.forEach(function (sg, i) {
+          var w = sg.h / c, left = pct(x), width = Math.max(0, pct(x + w) - left - (i < parts.length - 1 ? 0.25 : 0));
+          segs += '<span class="sg ' + sg.k + (i === parts.length - 1 ? " last" : "") + '" style="left:' + left.toFixed(2) + "%;width:" + width.toFixed(2) + '%" tabindex="0" data-tip="' + esc(R.name + " · " + sg.l + ": " + nf.format(Math.round(sg.h)) + " ч ≈ " + wkStr(w) + " нед.") + '"></span>';
+          x += w;
+        });
+      }
+      var tot = t.tot[r], wt = c > 0 ? tot / c : (tot > 0.01 ? Infinity : 0);
+      var fin = tot <= 0.01 ? "—" : (isFinite(wt) ? qLabel(atWeeks(wt)) : "нет людей");
+      var load = tot <= 0.01 ? null : (n > 0 ? tot / (n * pp() * t.dlw) : Infinity);
+      var loadTxt = load === null ? "—" : (isFinite(load) ? Math.round(load * 100) + "%" : "∞");
+      var need = t.need[r] > 0 ? '<span class="need">+' + t.need[r] + "</span>" : "—";
+      h += '<div class="ln"><div class="ln-role"><span class="rn">' + esc(R.name) + '</span><span class="rs">' + esc(R.sub) + "</span>" +
+        '<span class="stepper"><button type="button" data-step="' + r + '" data-d="-1" aria-label="Меньше людей: ' + esc(R.name) + '">−</button><output aria-live="polite">' + n + NB + "чел.</output>" +
+        '<button type="button" data-step="' + r + '" data-d="1" aria-label="Больше людей: ' + esc(R.name) + '">+</button></span></div>' +
+        '<div class="ln-track track">' + grid + segs + '<span class="dline" style="left:' + dlp.toFixed(2) + '%"></span></div>' +
+        '<div class="ln-fin">' + fin + "</div>" +
+        '<div class="ln-load' + (load !== null && load > 1.0001 ? " over" : "") + '"><span class="m-only">загрузка к сроку </span>' + loadTxt + "</div>" +
+        '<div class="ln-need"><span class="m-only">не хватает </span>' + need + "</div></div>";
+    });
+    var ticks = '<span class="tk s" style="left:0">окт.' + NB + "2026</span>" + years.filter(function (o) { return o.p < 94 && o.p > 8; }).map(function (o) { return '<span class="tk" style="left:' + o.p.toFixed(2) + '%">' + o.y + "</span>"; }).join("");
+    h += '<div class="ln ln-x"><span class="ln-role"></span><div class="ln-track track">' + ticks + "</div></div>";
+    el.innerHTML = h;
+    if (keep) { var p2 = keep.split("|"); var b = el.querySelector('[data-step="' + p2[0] + '"][data-d="' + p2[1] + '"]'); if (b) b.focus(); }
+  }
+
+  function renderDock(t) {
+    var nA = t.sel.filter(function (b) { return b.v === "A"; }).length, nB = t.sel.length - nA;
+    document.getElementById("d-count").innerHTML = t.sel.length ? "Выбрано <b>" + t.sel.length + "</b> <span class=\"d-sub\">из 24 · А " + nA + " · Б " + nB + "</span>" : "Выбрана <b>только база</b>";
+    var fin = t.fin.w;
+    document.getElementById("d-fin").innerHTML = isFinite(fin) ? "Готово ≈" + NB + "<b>" + qLabel(atWeeks(fin)) + "</b>" + (t.fin.bn ? ' <span class="d-sub">узкое место: ' + RBY[t.fin.bn].short + "</span>" : "") : "Готово: <b>нет людей в роли</b>";
+    var pill = document.getElementById("d-pill");
+    var ok = isFinite(fin) && fin <= t.dlw + 1e-9;
+    pill.className = "d-pill " + (ok ? "ok" : "bad");
+    pill.innerHTML = ok ? '<span class="ic">✓</span>К концу ' + S.dl + " успеваем" : '<span class="ic">!</span>К концу ' + S.dl + ": " + esc(isFinite(fin) ? needList(t).join(", ") : "нужны люди");
+  }
+
+  /* итог текстом и код варианта */
+  function encode() {
+    var ids = S.sel.slice().sort(function (a, b) { return BLOCKS.indexOf(BY[a]) - BLOCKS.indexOf(BY[b]); });
+    return "v1." + (ids.length ? ids.join("-") : "0") + ".g" + (S.goal || "0") + ".d" + S.dl + ".t" + RIDS.map(function (r) { return S.team[r]; }).join("-") + ".p" + S.prod + "-" + S.sup + "-" + S.vac;
+  }
+  function decode(str) {
+    var m = String(str).match(/v1\.([A-Za-z0-9\-]+)\.g([ABC0])\.d(2027|2028|2029)\.t(\d{1,2})-(\d{1,2})-(\d{1,2})-(\d{1,2})-(\d{1,2})(?:\.p(\d{1,3})-(\d{1,2})-(\d{1,2}))?/);
+    if (!m) return null;
+    var ids = m[1] === "0" ? [] : m[1].split("-").filter(function (id) { return BY[id]; });
+    return { sel: ids, goal: m[2] === "0" ? null : m[2], dl: Number(m[3]), team: { be: +m[4], mob: +m[5], web: +m[6], qa: +m[7], des: +m[8] }, prod: m[9], sup: m[10], vac: m[11] };
+  }
+  function summaryText(t) {
+    var L = [];
+    L.push("Дорожная карта развития БегунДа · вариант от " + dstr(new Date()));
+    L.push("");
+    L.push(S.goal ? "Метацель (" + GOAL_LABEL[S.goal] + "): " + (S.texts[S.goal] || "").trim() : "Метацель: не выбрана");
+    L.push("");
+    L.push("Обязательная база при любом выборе: платежная система, миграция в контур ВФЛА, обязательства stage 1 и перед клиентами — " + nf.format(sumHours(BASE)) + " ч, заложена в срок.");
+    if (!t.sel.length) L.push("Дополнительные блоки не выбраны.");
+    else {
+      var nA = t.sel.filter(function (b) { return b.v === "A"; }).length;
+      L.push("Выбрано блоков: " + t.sel.length + " (А: " + nA + ", Б: " + (t.sel.length - nA) + "), " + nf.format(sumHours(t.sel)) + " ч:");
+      t.sel.forEach(function (b) { L.push("• " + code(b) + " " + b.title + " — ≈ " + wkStr(weeksOf(hrsOf([b])).w) + " нед., " + nf.format(b.hours) + " ч"); });
+    }
+    L.push("");
+    L.push("Команда: " + ROLES.map(function (R) { return R.short + " " + S.team[R.id]; }).join(", ") + ".");
+    if (isFinite(t.fin.w)) {
+      var d = atWeeks(t.fin.w);
+      L.push("Срок: база и выбранное готовы ≈ " + qLabel(d).replace(/ /g, " ") + " (" + mLabel(d).replace(/ /g, " ") + "), узкое место — " + roleNom(t.fin.bn) + ".");
+      L.push(t.fin.w <= t.dlw + 1e-9 ? "К концу " + S.dl + " успеваем текущим составом." : "Чтобы успеть к концу " + S.dl + ", не хватает: " + needList(t).join(", ") + ".");
+    } else L.push("Срок не посчитан: в команде нет людей для нужной роли.");
+    L.push("Допущения: производительность " + S.prod + "%, поддержка и релизы " + S.sup + "%, отпуска " + S.vac + "%, старт 01.10.2026, точность ±40%.");
+    L.push("");
+    L.push("Код варианта: " + encode());
+    return L.join("\n");
+  }
+
+  /* события */
+  function toggle(id) {
+    var i = S.sel.indexOf(id);
+    if (i >= 0) S.sel.splice(i, 1); else S.sel.push(id);
+    update();
+  }
+  document.getElementById("vectors").addEventListener("click", function (e) {
+    var card = e.target.closest(".card"); if (!card) return;
+    if (e.target.matches("input[type=checkbox]")) return;
+    if (window.getSelection && String(window.getSelection()).length > 2) return;
+    toggle(card.dataset.id);
+  });
+  document.getElementById("vectors").addEventListener("change", function (e) {
+    if (!e.target.matches("input[type=checkbox]")) return;
+    var id = e.target.closest(".card").dataset.id, on = e.target.checked, i = S.sel.indexOf(id);
+    if (on && i < 0) S.sel.push(id); if (!on && i >= 0) S.sel.splice(i, 1);
+    update();
+  });
+  document.getElementById("mx").addEventListener("click", function (e) { var p = e.target.closest(".pill"); if (p) toggle(p.dataset.id); });
+  document.getElementById("picked").addEventListener("click", function (e) { var b = e.target.closest("[data-remove]"); if (b) toggle(b.dataset.remove); });
+  document.querySelectorAll("[data-preset]").forEach(function (b) {
+    b.addEventListener("click", function () { S.sel = PRESETS[b.dataset.preset].slice(); update(); });
+  });
+  function setView(full) {
+    S.full = full;
+    document.getElementById("vectors").classList.toggle("full", full);
+    document.getElementById("view-short").setAttribute("aria-pressed", full ? "false" : "true");
+    document.getElementById("view-full").setAttribute("aria-pressed", full ? "true" : "false");
+    save();
+  }
+  document.getElementById("view-short").addEventListener("click", function () { setView(false); });
+  document.getElementById("view-full").addEventListener("click", function () { setView(true); });
+
+  document.querySelectorAll('input[name="goal"]').forEach(function (r) {
+    r.addEventListener("change", function () { S.goal = r.value; update(); document.getElementById("goal-text").focus(); });
+  });
+  document.getElementById("goal-text").addEventListener("input", function (e) {
+    if (!S.goal) return;
+    S.texts[S.goal] = e.target.value;
+    document.getElementById("goal-reset").hidden = S.texts[S.goal] === GOALS[S.goal];
+    document.getElementById("summary").value = summaryText(totals());
+    save();
+  });
+  document.getElementById("goal-reset").addEventListener("click", function () { if (S.goal) { S.texts[S.goal] = GOALS[S.goal]; update(); } });
+  document.querySelectorAll('input[name="dl"]').forEach(function (r) {
+    r.addEventListener("change", function () { S.dl = Number(r.value); update(); });
+  });
+  document.getElementById("lanes").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-step]"); if (!b) return;
+    var r = b.dataset.step; S.team[r] = Math.min(12, Math.max(0, (S.team[r] || 0) + Number(b.dataset.d)));
+    update();
+  });
+  document.getElementById("team-reset").addEventListener("click", function () { S.team = Object.assign({}, DEF_TEAM); update(); });
+  [["in-prod", "prod", 40, 100, 75], ["in-sup", "sup", 0, 60, 20], ["in-vac", "vac", 0, 40, 15]].forEach(function (a) {
+    var el = document.getElementById(a[0]);
+    el.addEventListener("change", function () { S[a[1]] = clampInt(el.value, a[2], a[3], a[4]); el.value = S[a[1]]; update(); });
+  });
+
+  document.getElementById("copy-btn").addEventListener("click", function () {
+    var txt = document.getElementById("summary").value, st = document.getElementById("copy-status");
+    function fallback() { var ta = document.getElementById("summary"); ta.focus(); ta.select(); st.textContent = "Текст выделен: скопируйте его вручную."; }
+    try {
+      navigator.clipboard.writeText(txt).then(function () { st.textContent = "Итог скопирован в буфер обмена."; }, fallback);
+    } catch (e) { fallback(); }
+  });
+  document.getElementById("code-btn").addEventListener("click", function () {
+    var st = document.getElementById("code-status"), v = decode(document.getElementById("code-in").value);
+    if (!v) { st.textContent = "Код не распознан. Скопируйте строку «Код варианта» из итога целиком, она начинается с v1."; return; }
+    S.sel = v.sel; S.goal = v.goal; S.dl = v.dl;
+    RIDS.forEach(function (r) { S.team[r] = clampInt(v.team[r], 0, 12, DEF_TEAM[r]); });
+    if (v.prod) { S.prod = clampInt(v.prod, 40, 100, 75); S.sup = clampInt(v.sup, 0, 60, 20); S.vac = clampInt(v.vac, 0, 40, 15); }
+    syncInputs(); update();
+    st.textContent = "Вариант открыт: " + v.sel.length + " " + plural(v.sel.length, "блок", "блока", "блоков") + ".";
+  });
+
+  var tip = document.getElementById("tip");
+  function showTip(el, x, y) { tip.textContent = el.dataset.tip; tip.hidden = false; var w = tip.offsetWidth; tip.style.left = Math.max(8, Math.min(window.innerWidth - w - 8, x + 12)) + "px"; tip.style.top = Math.max(8, y - 38) + "px"; }
+  document.getElementById("lanes").addEventListener("pointermove", function (e) { var s = e.target.closest(".sg"); if (s) showTip(s, e.clientX, e.clientY); else tip.hidden = true; });
+  document.getElementById("lanes").addEventListener("pointerleave", function () { tip.hidden = true; });
+  document.getElementById("lanes").addEventListener("focusin", function (e) { var s = e.target.closest(".sg"); if (s) { var r = s.getBoundingClientRect(); showTip(s, r.left + r.width / 2, r.top); } });
+  document.getElementById("lanes").addEventListener("focusout", function () { tip.hidden = true; });
+
+  function syncInputs() {
+    document.querySelectorAll('input[name="goal"]').forEach(function (r) { r.checked = r.value === S.goal; });
+    document.querySelectorAll('input[name="dl"]').forEach(function (r) { r.checked = Number(r.value) === S.dl; });
+    document.getElementById("in-prod").value = S.prod;
+    document.getElementById("in-sup").value = S.sup;
+    document.getElementById("in-vac").value = S.vac;
+  }
+
+  renderBase();
+  renderCards();
+  renderMatrix();
+  syncInputs();
+  setView(S.full);
+  update();
+})();
+</script>
+
+</body>
+</html>
