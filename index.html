@@ -396,7 +396,7 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
       <dt>Как зарабатываем</dt><dd>Подписка по числу участников, платные контент-пакеты, комиссия с партнерских поощрений.</dd>
       <dt>Метрики</dt><dd>Запуски программ в месяц, выручка на программу, часы команды на запуск и сопровождение.</dd>
       <dt>Опора</dt><dd>Около 30 программ с 2023 года: ЛеманаПРО, Мегафон, Северсталь, РЖД, Инвитро, АстраЗенека. Пока каждую собирает команда вручную.</dd>
-      <dt>Где тонко</dt><dd>Упирается в веб-разработку: на всю админку один fullstack-разработчик. Контент-пакеты делают методисты, это отдельный бюджет.</dd>
+      <dt>Где тонко</dt><dd>Упирается в тестирование и веб-разработку: один тестировщик на всю команду и один fullstack-разработчик на всю админку. Контент-пакеты делают методисты, это отдельный бюджет.</dd>
     </dl>
     <p class="vsum" id="vsum-A"></p>
     <div class="cards" id="cards-A"></div>
@@ -419,7 +419,7 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
       <dt>Как зарабатываем</dt><dd>Участие бесплатное. Платят за услуги: шкафчики и групповые тренировки в БЦ, тренеров (комиссия биржи), слоты на старты RR, премиум-планы. Плюс партнеры.</dd>
       <dt>Метрики</dt><dd>Активные участники в месяц, доля вернувшихся в БЦ, участники, пришедшие по приглашению.</dd>
       <dt>Опора</dt><dd>Около 85 тыс. пользователей, 23 беговых центра к концу 2026 года. Уже работают бронь шкафчиков и камер хранения, запись на групповые тренировки, задания с геометкой первого посещения.</dd>
-      <dt>Где тонко</dt><dd>Чтобы дойти до 5 млн к 2030 году, аудитория должна расти примерно в 3,5 раза в год. Нужны нагрузочная устойчивость и продвижение. Прямых денег мало.</dd>
+      <dt>Где тонко</dt><dd>Чтобы дойти до 5 млн к 2030 году, аудитория должна расти примерно в 3,5 раза в год. Упирается в тестирование и мобильную разработку, нужны нагрузочная устойчивость и продвижение. Прямых денег мало.</dd>
     </dl>
     <p class="vsum" id="vsum-B"></p>
     <div class="cards" id="cards-B"></div>
@@ -463,12 +463,13 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
         <label><input type="radio" name="dl" id="dl-2027" value="2027"><span>концу 2027</span></label>
         <label><input type="radio" name="dl" id="dl-2028" value="2028"><span>концу 2028</span></label>
         <label><input type="radio" name="dl" id="dl-2029" value="2029"><span>концу 2029</span></label>
+        <label><input type="radio" name="dl" id="dl-2030" value="2030"><span>концу 2030</span></label>
       </div>
     </div>
     <p class="verdict" id="verdict" aria-live="polite"></p>
     <div class="lg" aria-hidden="true"><span><i style="background:var(--base)"></i>Обязательная база</span><span><i style="background:var(--a)"></i>Блоки вектора А</span><span><i style="background:var(--b)"></i>Блоки вектора Б</span></div>
     <div class="lanes" id="lanes"></div>
-    <p class="hint">Полоса показывает, сколько недель роль занята базой и выбранными блоками, начиная с 1 октября 2026 года. Число людей можно менять кнопками. По умолчанию состав включает две открытые вакансии: QA-автоматизатора и второго дизайнера. <button type="button" class="linkbtn" id="team-reset">Вернуть состав</button></p>
+    <p class="hint">Полоса показывает, сколько недель роль занята базой и выбранными блоками, начиная с 1 октября 2026 года. Число людей можно менять кнопками. По умолчанию — текущий состав. Открытые вакансии, QA-автоматизатора и второго дизайнера, добавьте кнопкой «+». <button type="button" class="linkbtn" id="team-reset">Вернуть текущий состав</button></p>
   </div>
 
   <div class="step">
@@ -487,9 +488,9 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
   <div class="sec-head"><h2 id="m-h">Как считали</h2></div>
   <div class="method-grid">
     <div class="prose">
-      <p><b>Команда.</b> Три бэкенд-разработчика (C# .NET), два мобильных (React Native), один fullstack веб-разработчик (Vue: админка и сайт), тестировщик и дизайнер. Плюс две открытые вакансии: QA-автоматизатор и второй дизайнер. Продакт, архитектор, аналитик и PM в часы блоков не входят: постановка и управление — их постоянная работа.</p>
+      <p><b>Команда.</b> Считаем текущий состав: три бэкенд-разработчика (C# .NET), два мобильных (React Native), один fullstack веб-разработчик (Vue: админка и сайт), один тестировщик и один дизайнер. Открытые вакансии, QA-автоматизатора и второго дизайнера, можно добавить кнопками в разделе «Срок и команда». Продакт, архитектор, аналитик и PM в часы блоков не входят: постановка и управление — их постоянная работа.</p>
       <p><b>Часы в неделю.</b> 40 ч × <span data-out="prod">75</span>% производительности. Из оставшегося около <span data-out="sup">20</span>% уходит на поддержку, релизы и сборку программ для действующих клиентов, еще около <span data-out="vac">15</span>% времени — отпуска и праздники. На блоки роадмэпа остается <b id="pp-out">≈ 20 ч</b> в неделю на человека.</p>
-      <p><b>Вес блока</b> — полный цикл в часах: дизайн, разработка, тестирование. Оценки откалиброваны по старому и текущему роадмэпу и разложены по ролям: у админки больше веба, у приложения — мобильной разработки.</p>
+      <p><b>Вес блока</b> — полный цикл в часах: дизайн, разработка, тестирование. Оценки откалиброваны по старому и текущему роадмэпу и разложены по ролям: у админки больше веба, у приложения — мобильной разработки. Тестирование закладываем не меньше 30% часов блока, как в плане MVP беговых центров (168 из 580 ч). Поэтому один тестировщик — главное узкое место почти любого набора блоков.</p>
       <p><b>Срок блока.</b> Часы каждой роли делим на ее недельную мощность и берем самую долгую роль: это узкое место. <b>Срок варианта</b> считаем так же для суммы базы и выбранных блоков, от 1 октября 2026 года. Роли работают параллельно, поэтому срок варианта меньше суммы сроков блоков.</p>
       <p><b>Аудитория и деньги.</b> Экспертная оценка вклада блока: 3 — сильный прямой эффект, 2 — заметный, 1 — косвенный, 0 — нет.</p>
       <p><b>Точность ±40%.</b> Это верхнеуровневая оценка без проработки требований. После выбора блоков — декомпозиция и переоценка вместе с командой.</p>
@@ -506,7 +507,7 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
   <div class="sec-head"><h2 id="n-h">Что важно учесть</h2></div>
   <ul>
     <li><b>Срок цели.</b> В «Концепции развития программы БЦ ВФЛА» стоит 5 млн участников к 2028 году, в постановке — к 2030. От ~85 тыс. сейчас это рост примерно в 6 раз в год до конца 2028 или в 3,5 раза в год до начала 2030. Срок стоит сверить до встречи.</li>
-    <li><b>База загружает бэкенд.</b> <span id="note-base"></span></li>
+    <li><b>Тестирование — узкое место.</b> <span id="note-base"></span></li>
     <li><b>Не только разработка.</b> Контент-пакеты, модерация, работа с клубами и продвижение требуют людей и бюджета вне команды разработки.</li>
     <li><b>Действующие клиенты.</b> Корпоративные программы с договорными обязательствами остаются при любом векторе: их поддержка заложена в долю времени на поддержку.</li>
     <li><b>Смена ролей.</b> Продакт и архитектор передают дела в течение месяца. Оценки стоит перепроверить с новыми.</li>
@@ -534,7 +535,7 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
 
   var WEEK = 604800000;
   var START = new Date(2026, 9, 1);
-  var DEADLINES = { 2027: new Date(2027, 11, 31), 2028: new Date(2028, 11, 31), 2029: new Date(2029, 11, 31) };
+  var DEADLINES = { 2027: new Date(2027, 11, 31), 2028: new Date(2028, 11, 31), 2029: new Date(2029, 11, 31), 2030: new Date(2030, 11, 31) };
   var MONTHS = ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"];
   var MONTHS_DAT = ["январю", "февралю", "марту", "апрелю", "маю", "июню", "июлю", "августу", "сентябрю", "октябрю", "ноябрю", "декабрю"];
   var ROMAN = ["I", "II", "III", "IV"];
@@ -550,7 +551,7 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
   ];
   var RIDS = ROLES.map(function (r) { return r.id; });
   var RBY = {}; ROLES.forEach(function (r) { RBY[r.id] = r; });
-  var DEF_TEAM = { be: 3, mob: 2, web: 1, qa: 2, des: 2 };
+  var DEF_TEAM = { be: 3, mob: 2, web: 1, qa: 1, des: 1 };
 
   function sp(be, mob, web, qa, des) { return { be: be, mob: mob, web: web, qa: qa, des: des }; }
 
@@ -714,6 +715,16 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
       extra: "Мерч за деньги — только офлайн из-за маркировки «Честный знак». Рассматривается готовое решение EPSILON.",
       calib: "Возобновляемая покупка — 50 ч." }
   ];
+  /* консервативно: тестирование не меньше 30% часов, как в плане MVP беговых центров (168 из 580 ч) */
+  var QA_MIN = 0.30;
+  function conservative(it) {
+    var qa = it.split.qa || 0;
+    if (qa >= QA_MIN) return;
+    var total = Math.round(it.hours * (1 - qa) / (1 - QA_MIN) / 10) * 10, s = {}, sum = 0;
+    RIDS.forEach(function (r) { if (r !== "qa") { s[r] = it.hours * (it.split[r] || 0) / total; sum += s[r]; } });
+    s.qa = 1 - sum; it.hours = total; it.split = s;
+  }
+  BASE.forEach(conservative); BLOCKS.forEach(conservative);
   var BY = {}; BLOCKS.forEach(function (b) { BY[b.id] = b; });
 
   var GOALS = {
@@ -733,9 +744,9 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
   };
 
   /* состояние */
-  var KEY = "begunda-razvilka-v1";
+  var KEY = "begunda-roadmap-v2";
   function defaults() {
-    return { sel: [], goal: null, texts: { A: GOALS.A, B: GOALS.B, C: GOALS.C }, dl: 2027, team: Object.assign({}, DEF_TEAM), prod: 75, sup: 20, vac: 15, full: false };
+    return { sel: [], goal: null, texts: { A: GOALS.A, B: GOALS.B, C: GOALS.C }, dl: 2027, team: Object.assign({}, DEF_TEAM), prod: 75, sup: 25, vac: 15, full: false };
   }
   function clampInt(v, lo, hi, d) { v = parseInt(v, 10); if (isNaN(v)) return d; return Math.min(hi, Math.max(lo, v)); }
   function sanitize(o) {
@@ -746,7 +757,7 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
     if (o.texts && typeof o.texts === "object") ["A", "B", "C"].forEach(function (k) { if (typeof o.texts[k] === "string") s.texts[k] = o.texts[k]; });
     if (DEADLINES[o.dl]) s.dl = Number(o.dl);
     if (o.team && typeof o.team === "object") RIDS.forEach(function (r) { s.team[r] = clampInt(o.team[r], 0, 12, DEF_TEAM[r]); });
-    s.prod = clampInt(o.prod, 40, 100, 75); s.sup = clampInt(o.sup, 0, 60, 20); s.vac = clampInt(o.vac, 0, 40, 15);
+    s.prod = clampInt(o.prod, 40, 100, 75); s.sup = clampInt(o.sup, 0, 60, 25); s.vac = clampInt(o.vac, 0, 40, 15);
     s.full = !!o.full;
     return s;
   }
@@ -807,7 +818,7 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
     ul.innerHTML = BASE.map(function (p) {
       return "<li><b>" + esc(p.title) + "</b><span>" + nf.format(p.hours) + NB + "ч" + (p.src === "оценка" ? ", оценка" : "") + "</span></li>";
     }).join("");
-    document.getElementById("base-total").textContent = BASE.length + " работ · " + nf.format(sumHours(BASE)) + NB + "ч · уже заложено в сроки";
+    document.getElementById("base-total").textContent = BASE.length + " работ · " + nf.format(sumHours(BASE)) + NB + "ч с тестированием · уже заложено в сроки";
   }
   function cardHTML(b) {
     var more = "<ul>" + b.items.map(function (i) { return "<li>" + esc(i) + "</li>"; }).join("") + "</ul>";
@@ -883,12 +894,13 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
 
     var rb = weeksOf(t.hb), rp = weeksOf(hrsOf([BASE[0]]));
     document.getElementById("base-note").textContent = isFinite(rb.w) && isFinite(rp.w)
-      ? "Сама по себе база занимает команду примерно до " + whenGen(atWeeks(rb.w)) + ", узкое место — " + roleNom(rb.bn) + ". Платежи, если делать их первыми, будут готовы к " + whenGen(atWeeks(rp.w)) + "."
+      ? "Сама по себе база занимает команду примерно до " + whenGen(atWeeks(rb.w)) + ", узкое место — " + roleNom(rb.bn) + ". Платежи, если делать их первыми, будут готовы к " + whenDat(atWeeks(rp.w)) + "."
       : "В составе команды нет людей для одной из ролей, поэтому срок базы не посчитать.";
-    var beW = cap("be") > 0 ? t.hb.be / cap("be") : Infinity;
-    document.getElementById("note-base").textContent = isFinite(beW)
-      ? "При текущем составе обязательная база занимает бэкенд примерно до " + whenGen(atWeeks(beW)) + ". Платежи нужны к концу 2026 года, поэтому их стоит ставить первыми."
-      : "В составе нет бэкенд-разработчиков.";
+    var qaTxt = (S.team.qa || 0) <= 1 ? "Один тестировщик на всю команду, поэтому почти любой набор блоков упирается в тестирование. " : "";
+    var late = isFinite(rp.w) && atWeeks(rp.w) > new Date(2026, 11, 31);
+    document.getElementById("note-base").textContent = isFinite(rb.w) && isFinite(rp.w)
+      ? qaTxt + "При этом составе обязательная база займет команду примерно до " + whenGen(atWeeks(rb.w)) + ", узкое место — " + roleNom(rb.bn) + ". Платежи нужны к концу 2026 года: если делать их первыми, они будут готовы к " + whenDat(atWeeks(rp.w)) + (late ? ", то есть позже срока. Ускорить их может только еще один " + (rp.bn === "qa" ? "тестировщик" : "человек в роли «" + RBY[rp.bn].name + "»") + "." : ".")
+      : qaTxt;
 
     renderPicked(t);
     renderCoverage();
@@ -903,6 +915,7 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
   }
 
   var MONTHS_GEN = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+  function whenDat(d) { var dd = d.getDate(); return (dd <= 10 ? "началу" : (dd <= 20 ? "середине" : "концу")) + " " + MONTHS_GEN[d.getMonth()] + NB + d.getFullYear(); }
   function whenGen(d) { var dd = d.getDate(); return (dd <= 10 ? "начала" : (dd <= 20 ? "середины" : "конца")) + " " + MONTHS_GEN[d.getMonth()] + NB + d.getFullYear(); }
 
   function renderPicked(t) {
@@ -967,7 +980,7 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
     var head = (none ? "Только обязательная база готова" : "База и " + t.sel.length + " " + plural(t.sel.length, "блок", "блока", "блоков") + " готовы") + " ≈" + NB + qLabel(d) + " (" + mLabel(d) + ")" + who + ". ";
     if (ok) {
       el.className = "verdict ok";
-      el.innerHTML = '<span class="ic">✓</span><span>' + esc(head) + "Успеваем " + dl + " текущим составом, запас ≈" + NB + Math.round(t.dlw - fin) + NB + "нед.</span>";
+      el.innerHTML = '<span class="ic">✓</span><span>' + esc(head) + "Успеваем " + dl + " этим составом, запас ≈" + NB + Math.round(t.dlw - fin) + NB + "нед.</span>";
     } else {
       el.className = "verdict bad";
       var nl = needList(t);
@@ -1042,7 +1055,7 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
     return "v1." + (ids.length ? ids.join("-") : "0") + ".g" + (S.goal || "0") + ".d" + S.dl + ".t" + RIDS.map(function (r) { return S.team[r]; }).join("-") + ".p" + S.prod + "-" + S.sup + "-" + S.vac;
   }
   function decode(str) {
-    var m = String(str).match(/v1\.([A-Za-z0-9\-]+)\.g([ABC0])\.d(2027|2028|2029)\.t(\d{1,2})-(\d{1,2})-(\d{1,2})-(\d{1,2})-(\d{1,2})(?:\.p(\d{1,3})-(\d{1,2})-(\d{1,2}))?/);
+    var m = String(str).match(/v1\.([A-Za-z0-9\-]+)\.g([ABC0])\.d(2027|2028|2029|2030)\.t(\d{1,2})-(\d{1,2})-(\d{1,2})-(\d{1,2})-(\d{1,2})(?:\.p(\d{1,3})-(\d{1,2})-(\d{1,2}))?/);
     if (!m) return null;
     var ids = m[1] === "0" ? [] : m[1].split("-").filter(function (id) { return BY[id]; });
     return { sel: ids, goal: m[2] === "0" ? null : m[2], dl: Number(m[3]), team: { be: +m[4], mob: +m[5], web: +m[6], qa: +m[7], des: +m[8] }, prod: m[9], sup: m[10], vac: m[11] };
@@ -1065,9 +1078,9 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
     if (isFinite(t.fin.w)) {
       var d = atWeeks(t.fin.w);
       L.push("Срок: база и выбранное готовы ≈ " + qLabel(d).replace(/ /g, " ") + " (" + mLabel(d).replace(/ /g, " ") + "), узкое место — " + roleNom(t.fin.bn) + ".");
-      L.push(t.fin.w <= t.dlw + 1e-9 ? "К концу " + S.dl + " успеваем текущим составом." : "Чтобы успеть к концу " + S.dl + ", не хватает: " + needList(t).join(", ") + ".");
+      L.push(t.fin.w <= t.dlw + 1e-9 ? "К концу " + S.dl + " успеваем этим составом." : "Чтобы успеть к концу " + S.dl + ", не хватает: " + needList(t).join(", ") + ".");
     } else L.push("Срок не посчитан: в команде нет людей для нужной роли.");
-    L.push("Допущения: производительность " + S.prod + "%, поддержка и релизы " + S.sup + "%, отпуска " + S.vac + "%, старт 01.10.2026, точность ±40%.");
+    L.push("Допущения: производительность " + S.prod + "%, поддержка и релизы " + S.sup + "%, отпуска " + S.vac + "%, тестирование не меньше 30% часов блока, старт 01.10.2026, точность ±40%.");
     L.push("");
     L.push("Код варианта: " + encode());
     return L.join("\n");
@@ -1126,7 +1139,7 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
     update();
   });
   document.getElementById("team-reset").addEventListener("click", function () { S.team = Object.assign({}, DEF_TEAM); update(); });
-  [["in-prod", "prod", 40, 100, 75], ["in-sup", "sup", 0, 60, 20], ["in-vac", "vac", 0, 40, 15]].forEach(function (a) {
+  [["in-prod", "prod", 40, 100, 75], ["in-sup", "sup", 0, 60, 25], ["in-vac", "vac", 0, 40, 15]].forEach(function (a) {
     var el = document.getElementById(a[0]);
     el.addEventListener("change", function () { S[a[1]] = clampInt(el.value, a[2], a[3], a[4]); el.value = S[a[1]]; update(); });
   });
@@ -1143,7 +1156,7 @@ th{font-weight:600;color:var(--muted);font-size:12.5px}
     if (!v) { st.textContent = "Код не распознан. Скопируйте строку «Код варианта» из итога целиком, она начинается с v1."; return; }
     S.sel = v.sel; S.goal = v.goal; S.dl = v.dl;
     RIDS.forEach(function (r) { S.team[r] = clampInt(v.team[r], 0, 12, DEF_TEAM[r]); });
-    if (v.prod) { S.prod = clampInt(v.prod, 40, 100, 75); S.sup = clampInt(v.sup, 0, 60, 20); S.vac = clampInt(v.vac, 0, 40, 15); }
+    if (v.prod) { S.prod = clampInt(v.prod, 40, 100, 75); S.sup = clampInt(v.sup, 0, 60, 25); S.vac = clampInt(v.vac, 0, 40, 15); }
     syncInputs(); update();
     st.textContent = "Вариант открыт: " + v.sel.length + " " + plural(v.sel.length, "блок", "блока", "блоков") + ".";
   });
