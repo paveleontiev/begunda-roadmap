@@ -28,7 +28,7 @@ window.BEGUNDA_DATA = {
   {
    "id": "qa",
    "sub": "в штате 1, ищем автоматизатора",
-   "people": 1
+   "people": 10
   },
   {
    "id": "des",
